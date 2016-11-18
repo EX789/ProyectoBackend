@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="GalenosEntities">
+    <EntitySetMapping Name="AGENDA_MEDICO">
+      <EntityTypeMapping TypeName="Model.AGENDA_MEDICO">
+        <MappingFragment StoreEntitySet="AGENDA_MEDICO">
+          <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+          <ScalarProperty Name="HORAS" ColumnName="HORAS" />
+          <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ATENCION">
+      <EntityTypeMapping TypeName="Model.ATENCION">
+        <MappingFragment StoreEntitySet="ATENCION">
+          <ScalarProperty Name="ID_ATENCION" ColumnName="ID_ATENCION" />
+          <ScalarProperty Name="ID_CENTRO" ColumnName="ID_CENTRO" />
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+          <ScalarProperty Name="DESCRIPCION_ATENCION" ColumnName="DESCRIPCION_ATENCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CENTRO_MEDICO">
+      <EntityTypeMapping TypeName="Model.CENTRO_MEDICO">
+        <MappingFragment StoreEntitySet="CENTRO_MEDICO">
+          <ScalarProperty Name="ID_CENTRO" ColumnName="ID_CENTRO" />
+          <ScalarProperty Name="NOMBRE_CENTRO" ColumnName="NOMBRE_CENTRO" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+          <ScalarProperty Name="REGION" ColumnName="REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COMISION">
+      <EntityTypeMapping TypeName="Model.COMISION">
+        <MappingFragment StoreEntitySet="COMISION">
+          <ScalarProperty Name="ID_COMISION" ColumnName="ID_COMISION" />
+          <ScalarProperty Name="MONTO_COMISION" ColumnName="MONTO_COMISION" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ESTAD_COMISION" ColumnName="ESTAD_COMISION" />
+          <ScalarProperty Name="COMPROBANTE" ColumnName="COMPROBANTE" />
+          <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FERIADOS">
+      <EntityTypeMapping TypeName="Model.FERIADOS">
+        <MappingFragment StoreEntitySet="FERIADOS">
+          <ScalarProperty Name="ID_FERIADO" ColumnName="ID_FERIADO" />
+          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+          <ScalarProperty Name="MES" ColumnName="MES" />
+          <ScalarProperty Name="DIA" ColumnName="DIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FORMA_PAGO">
+      <EntityTypeMapping TypeName="Model.FORMA_PAGO">
+        <MappingFragment StoreEntitySet="FORMA_PAGO">
+          <ScalarProperty Name="ID_FORMA_PAGO" ColumnName="ID_FORMA_PAGO" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MEDICO">
+      <EntityTypeMapping TypeName="Model.MEDICO">
+        <MappingFragment StoreEntitySet="MEDICO">
+          <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+          <ScalarProperty Name="ESPECIALIDAD" ColumnName="ESPECIALIDAD" />
+          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+          <ScalarProperty Name="ID_CENTRO" ColumnName="ID_CENTRO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PAGO">
+      <EntityTypeMapping TypeName="Model.PAGO">
+        <MappingFragment StoreEntitySet="PAGO">
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+          <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ID_FORMA_PAGO" ColumnName="ID_FORMA_PAGO" />
+          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+          <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
+          <ScalarProperty Name="ID_PREVISION" ColumnName="ID_PREVISION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERFIL">
+      <EntityTypeMapping TypeName="Model.PERFIL">
+        <MappingFragment StoreEntitySet="PERFIL">
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="NOMBRE_PERFIL" ColumnName="NOMBRE_PERFIL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PERSONA">
+      <EntityTypeMapping TypeName="Model.PERSONA">
+        <MappingFragment StoreEntitySet="PERSONA">
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APELLIDO_PAT" ColumnName="APELLIDO_PAT" />
+          <ScalarProperty Name="APELLIDO_MAT" ColumnName="APELLIDO_MAT" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="COMUNA" ColumnName="COMUNA" />
+          <ScalarProperty Name="TELEFONO" ColumnName="TELEFONO" />
+          <ScalarProperty Name="CORREO" ColumnName="CORREO" />
+          <ScalarProperty Name="ID_PERFIL" ColumnName="ID_PERFIL" />
+          <ScalarProperty Name="CLAVE" ColumnName="CLAVE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PREVISION">
+      <EntityTypeMapping TypeName="Model.PREVISION">
+        <MappingFragment StoreEntitySet="PREVISION">
+          <ScalarProperty Name="ID_PREVISION" ColumnName="ID_PREVISION" />
+          <ScalarProperty Name="DESCRIPCION_PREVISION" ColumnName="DESCRIPCION_PREVISION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RESERVA">
+      <EntityTypeMapping TypeName="Model.RESERVA">
+        <MappingFragment StoreEntitySet="RESERVA">
+          <ScalarProperty Name="ESTADO_RESERVA" ColumnName="ESTADO_RESERVA" />
+          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+          <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACIENTEESPERA">
+      <EntityTypeMapping TypeName="Model.PACIENTEESPERA">
+        <MappingFragment StoreEntitySet="PACIENTEESPERA">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="HORAS" ColumnName="HORAS" />
+          <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
+          <ScalarProperty Name="DESCRIPCION_ATENCION" ColumnName="DESCRIPCION_ATENCION" />
+          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+          <ScalarProperty Name="ID_PAGO" ColumnName="ID_PAGO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACIENTESNOPAGO">
+      <EntityTypeMapping TypeName="Model.PACIENTESNOPAGO">
+        <MappingFragment StoreEntitySet="PACIENTESNOPAGO">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+          <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
+          <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="P_INGRESAR_PAGOS" FunctionName="Model.Store.P_INGRESAR_PAGOS" />
+  </EntityContainerMapping>
+</Mapping>

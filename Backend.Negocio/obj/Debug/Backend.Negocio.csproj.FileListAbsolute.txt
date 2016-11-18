@@ -1,0 +1,14 @@
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Negocio.dll
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Negocio.pdb
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Datos.dll
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Datos.pdb
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.dll
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.pdb
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Negocio.dll
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Negocio.pdb
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\bin\Debug\Backend.Datos.pdb
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.dll
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Negocio\obj\Debug\Backend.Negocio.pdb

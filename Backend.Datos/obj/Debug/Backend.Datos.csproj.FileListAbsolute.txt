@@ -1,0 +1,11 @@
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.dll.config
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.dll
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.pdb
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.dll
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.pdb
+C:\Users\Leandro Maldonado\Documents\Visual Studio 2010\Projects\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.csprojResolveAssemblyReference.cache
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.dll.config
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.pdb
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.pdb

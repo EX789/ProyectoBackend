@@ -99,8 +99,9 @@ namespace Backend.Service
 
         [OperationContract]
         bool RecibeListado(List<Backend.Negocio.Agenda_medico> Lista);
-        
 
+        [OperationContract]
+        void enviarCorreo();
         // TODO: agregue aquí sus operaciones de servicio
     }
 

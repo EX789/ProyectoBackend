@@ -17,8 +17,6 @@ namespace Backend.Negocio
 
         public bool CrearPago( int monto,string forma_pago, string rut,int agenda, string prevision,int porc_prev,int id_medico)
         {
-          
-
             try
             {
             

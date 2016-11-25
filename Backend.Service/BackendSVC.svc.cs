@@ -246,6 +246,13 @@ namespace Backend.Service
 
 
 
-       
+
+
+
+        public void enviarCorreo()
+        {
+            Agenda_medico ag = new Agenda_medico();
+            ag.EnviarCorreo();
+        }
     }
 }

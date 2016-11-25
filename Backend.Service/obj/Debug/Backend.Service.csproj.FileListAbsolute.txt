@@ -16,3 +16,12 @@ C:\Users\raide\Desktop\ProyectoBackend\Backend.Service\bin\Backend.Datos.pdb
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Service\obj\Debug\Backend.Service.csprojResolveAssemblyReference.cache
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Service\obj\Debug\Backend.Service.dll
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Service\obj\Debug\Backend.Service.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Service.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Service.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Negocio.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Negocio.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\bin\Backend.Datos.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\obj\Debug\Backend.Service.csprojResolveAssemblyReference.cache
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\obj\Debug\Backend.Service.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Service\obj\Debug\Backend.Service.pdb

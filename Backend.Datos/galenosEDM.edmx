@@ -1036,7 +1036,7 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="galenosEDM">
+      <Diagram Name="galenosEDM" ZoomLevel="57">
         <EntityTypeShape EntityType="Model.AGENDA_MEDICO" Width="1.5" PointX="8.25" PointY="5.25" Height="2.7494921874999996" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.ATENCION" Width="1.5" PointX="3" PointY="5.5" Height="2.1725878906249996" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.CENTRO_MEDICO" Width="1.5" PointX="0.75" PointY="5.375" Height="2.3648893229166656" IsExpanded="true" />

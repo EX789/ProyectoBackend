@@ -4,21 +4,22 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="ModelStoreContainer">
-          <EntitySet Name="AGENDA_MEDICO" EntityType="Model.Store.AGENDA_MEDICO" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="ATENCION" EntityType="Model.Store.ATENCION" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="CENTRO_MEDICO" EntityType="Model.Store.CENTRO_MEDICO" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="COMISION" EntityType="Model.Store.COMISION" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="FERIADOS" EntityType="Model.Store.FERIADOS" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="FORMA_PAGO" EntityType="Model.Store.FORMA_PAGO" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="MEDICO" EntityType="Model.Store.MEDICO" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="PAGO" EntityType="Model.Store.PAGO" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="PERFIL" EntityType="Model.Store.PERFIL" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="PERSONA" EntityType="Model.Store.PERSONA" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="PREVISION" EntityType="Model.Store.PREVISION" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="RESERVA" EntityType="Model.Store.RESERVA" store:Type="Tables" Schema="GALENOSDB" />
-          <EntitySet Name="PACIENTEESPERA" EntityType="Model.Store.PACIENTEESPERA" store:Type="Views" store:Schema="GALENOSDB" store:Name="PACIENTEESPERA">
+          <EntitySet Name="AGENDA_MEDICO" EntityType="Model.Store.AGENDA_MEDICO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="ATENCION" EntityType="Model.Store.ATENCION" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="CENTRO_MEDICO" EntityType="Model.Store.CENTRO_MEDICO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="COMISION" EntityType="Model.Store.COMISION" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="FERIADOS" EntityType="Model.Store.FERIADOS" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="FORMA_PAGO" EntityType="Model.Store.FORMA_PAGO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="MED_CENTRO" EntityType="Model.Store.MED_CENTRO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="MEDICO" EntityType="Model.Store.MEDICO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="PAGO" EntityType="Model.Store.PAGO" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="PERFIL" EntityType="Model.Store.PERFIL" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="PERSONA" EntityType="Model.Store.PERSONA" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="PREVISION" EntityType="Model.Store.PREVISION" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="RESERVA" EntityType="Model.Store.RESERVA" store:Type="Tables" Schema="GALENOS" />
+          <EntitySet Name="PACIENTEESPERA" EntityType="Model.Store.PACIENTEESPERA" store:Type="Views" store:Schema="GALENOS" store:Name="PACIENTEESPERA">
             <DefiningQuery>SELECT 
       "PACIENTEESPERA"."NOMBRE" AS "NOMBRE", 
       "PACIENTEESPERA"."HORAS" AS "HORAS", 
@@ -26,9 +27,9 @@
       "PACIENTEESPERA"."DESCRIPCION_ATENCION" AS "DESCRIPCION_ATENCION", 
       "PACIENTEESPERA"."PERSONA_RUT" AS "PERSONA_RUT", 
       "PACIENTEESPERA"."ID_PAGO" AS "ID_PAGO"
-      FROM "GALENOSDB"."PACIENTEESPERA" "PACIENTEESPERA"</DefiningQuery>
+      FROM "GALENOS"."PACIENTEESPERA" "PACIENTEESPERA"</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.Store.PACIENTESNOPAGO" store:Type="Views" store:Schema="GALENOSDB" store:Name="PACIENTESNOPAGO">
+          <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.Store.PACIENTESNOPAGO" store:Type="Views" store:Schema="GALENOS" store:Name="PACIENTESNOPAGO">
             <DefiningQuery>SELECT 
       "PACIENTESNOPAGO"."NOMBRE" AS "NOMBRE", 
       "PACIENTESNOPAGO"."PERSONA_RUT" AS "PERSONA_RUT", 
@@ -36,7 +37,28 @@
       "PACIENTESNOPAGO"."DESCRIPCION" AS "DESCRIPCION", 
       "PACIENTESNOPAGO"."ID_AGEN_MED" AS "ID_AGEN_MED", 
       "PACIENTESNOPAGO"."ID_MEDICO" AS "ID_MEDICO"
-      FROM "GALENOSDB"."PACIENTESNOPAGO" "PACIENTESNOPAGO"</DefiningQuery>
+      FROM "GALENOS"."PACIENTESNOPAGO" "PACIENTESNOPAGO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PICIENTESNOPAGO" EntityType="Model.Store.PICIENTESNOPAGO" store:Type="Views" store:Schema="GALENOS" store:Name="PICIENTESNOPAGO">
+            <DefiningQuery>SELECT 
+      "PICIENTESNOPAGO"."NOMBRE" AS "NOMBRE", 
+      "PICIENTESNOPAGO"."PERSONA_RUT" AS "PERSONA_RUT", 
+      "PICIENTESNOPAGO"."FECHA_RESERVA" AS "FECHA_RESERVA", 
+      "PICIENTESNOPAGO"."DESCRIPCION" AS "DESCRIPCION", 
+      "PICIENTESNOPAGO"."ID_AGEN_MED" AS "ID_AGEN_MED", 
+      "PICIENTESNOPAGO"."ID_MEDICO" AS "ID_MEDICO"
+      FROM "GALENOS"."PICIENTESNOPAGO" "PICIENTESNOPAGO"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RECAUDACION" EntityType="Model.Store.RECAUDACION" store:Type="Views" store:Schema="GALENOS" store:Name="RECAUDACION">
+            <DefiningQuery>SELECT 
+      "RECAUDACION"."FECHA" AS "FECHA", 
+      "RECAUDACION"."PACIENTE_ATENDIDOS" AS "PACIENTE_ATENDIDOS", 
+      "RECAUDACION"."RUT_MEDICO" AS "RUT_MEDICO", 
+      "RECAUDACION"."NOMBRE" AS "NOMBRE", 
+      "RECAUDACION"."APELLIDO_PAT" AS "APELLIDO_PAT", 
+      "RECAUDACION"."APELLIDO_MAT" AS "APELLIDO_MAT", 
+      "RECAUDACION"."MONTO" AS "MONTO"
+      FROM "GALENOS"."RECAUDACION" "RECAUDACION"</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="AGENDA_MEDICO_MEDICO_FK" Association="Model.Store.AGENDA_MEDICO_MEDICO_FK">
             <End Role="MEDICO" EntitySet="MEDICO" />
@@ -57,6 +79,14 @@
           <AssociationSet Name="COMISION_PAGO_FK" Association="Model.Store.COMISION_PAGO_FK">
             <End Role="PAGO" EntitySet="PAGO" />
             <End Role="COMISION" EntitySet="COMISION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_4" Association="Model.Store.FK_ASS_4">
+            <End Role="MEDICO" EntitySet="MEDICO" />
+            <End Role="MED_CENTRO" EntitySet="MED_CENTRO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ASS_5" Association="Model.Store.FK_ASS_5">
+            <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
+            <End Role="MED_CENTRO" EntitySet="MED_CENTRO" />
           </AssociationSet>
           <AssociationSet Name="MEDICO_CENTRO_MEDICO_FK" Association="Model.Store.MEDICO_CENTRO_MEDICO_FK">
             <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
@@ -105,6 +135,8 @@
           <Property Name="HORAS" Type="number" Nullable="false" />
           <Property Name="MINUTOS" Type="number" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="15" />
+          <Property Name="HORA_FINAL" Type="number" />
+          <Property Name="MINUTO_FINAL" Type="number" />
         </EntityType>
         <EntityType Name="ATENCION">
           <Key>
@@ -153,6 +185,14 @@
           <Property Name="ID_FORMA_PAGO" Type="number" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="20" />
         </EntityType>
+        <EntityType Name="MED_CENTRO">
+          <Key>
+            <PropertyRef Name="MEDICO_ID_MEDICO" />
+            <PropertyRef Name="CENTRO_MEDICO_ID_CENTRO" />
+          </Key>
+          <Property Name="MEDICO_ID_MEDICO" Type="number" Nullable="false" />
+          <Property Name="CENTRO_MEDICO_ID_CENTRO" Type="number" Nullable="false" />
+        </EntityType>
         <EntityType Name="MEDICO">
           <Key>
             <PropertyRef Name="ID_MEDICO" />
@@ -194,7 +234,7 @@
           <Property Name="TELEFONO" Type="number" Nullable="false" />
           <Property Name="CORREO" Type="varchar2" Nullable="false" MaxLength="30" />
           <Property Name="ID_PERFIL" Type="number" Nullable="false" />
-          <Property Name="CLAVE" Type="varchar2" MaxLength="10" />
+          <Property Name="CLAVE" Type="varchar2" Nullable="false" MaxLength="10" />
         </EntityType>
         <EntityType Name="PREVISION">
           <Key>
@@ -213,7 +253,7 @@
           <Property Name="ID_AGEN_MED" Type="number" Nullable="false" />
         </EntityType>
         <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOSDB.PACIENTEESPERA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOS.PACIENTEESPERA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="PACIENTEESPERA">
           <Key>
@@ -231,7 +271,7 @@
           <Property Name="ID_PAGO" Type="number" Nullable="false" />
         </EntityType>
         <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOSDB.PACIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOS.PACIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
         <EntityType Name="PACIENTESNOPAGO">
           <Key>
@@ -247,6 +287,43 @@
           <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="15" />
           <Property Name="ID_AGEN_MED" Type="number" Nullable="false" />
           <Property Name="ID_MEDICO" Type="number" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'GALENOS.PICIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="PICIENTESNOPAGO">
+          <Key>
+            <PropertyRef Name="PERSONA_RUT" />
+            <PropertyRef Name="FECHA_RESERVA" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="ID_AGEN_MED" />
+            <PropertyRef Name="ID_MEDICO" />
+          </Key>
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="92" />
+          <Property Name="PERSONA_RUT" Type="varchar2" Nullable="false" MaxLength="15" />
+          <Property Name="FECHA_RESERVA" Type="date" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="15" />
+          <Property Name="ID_AGEN_MED" Type="number" Nullable="false" />
+          <Property Name="ID_MEDICO" Type="number" Nullable="false" />
+        </EntityType>
+        <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'GALENOS.RECAUDACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+        <EntityType Name="RECAUDACION">
+          <Key>
+            <PropertyRef Name="FECHA" />
+            <PropertyRef Name="RUT_MEDICO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="APELLIDO_PAT" />
+            <PropertyRef Name="APELLIDO_MAT" />
+          </Key>
+          <Property Name="FECHA" Type="date" Nullable="false" />
+          <Property Name="PACIENTE_ATENDIDOS" Type="number" />
+          <Property Name="RUT_MEDICO" Type="varchar2" Nullable="false" MaxLength="15" />
+          <Property Name="NOMBRE" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="APELLIDO_PAT" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="APELLIDO_MAT" Type="varchar2" Nullable="false" MaxLength="30" />
+          <Property Name="MONTO" Type="number" />
         </EntityType>
         <Association Name="AGENDA_MEDICO_MEDICO_FK">
           <End Role="MEDICO" Type="Model.Store.MEDICO" Multiplicity="1" />
@@ -305,6 +382,30 @@
             </Principal>
             <Dependent Role="COMISION">
               <PropertyRef Name="ID_PAGO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_4">
+          <End Role="MEDICO" Type="Model.Store.MEDICO" Multiplicity="1" />
+          <End Role="MED_CENTRO" Type="Model.Store.MED_CENTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MEDICO">
+              <PropertyRef Name="ID_MEDICO" />
+            </Principal>
+            <Dependent Role="MED_CENTRO">
+              <PropertyRef Name="MEDICO_ID_MEDICO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ASS_5">
+          <End Role="CENTRO_MEDICO" Type="Model.Store.CENTRO_MEDICO" Multiplicity="1" />
+          <End Role="MED_CENTRO" Type="Model.Store.MED_CENTRO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CENTRO_MEDICO">
+              <PropertyRef Name="ID_CENTRO" />
+            </Principal>
+            <Dependent Role="MED_CENTRO">
+              <PropertyRef Name="CENTRO_MEDICO_ID_CENTRO" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -416,10 +517,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="F_RECUPERAD_ID" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOSDB">
+        <Function Name="F_RECUPERAD_ID" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
           <Parameter Name="ID_MED" Type="number" Mode="In" />
         </Function>
-        <Function Name="P_INGRESAR_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOSDB">
+        <Function Name="PACIENTE_ESPERA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+          <Parameter Name="ID_MEDICO" Type="number" Mode="In" />
+        </Function>
+        <Function Name="PROC_INFORME_RECAUDACION2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+          <Parameter Name="RUT_MEDICO" Type="varchar2" Mode="In" />
+          <Parameter Name="FECHA_INICIO" Type="date" Mode="In" />
+          <Parameter Name="FECHA_TERMINO" Type="date" Mode="In" />
+        </Function>
+        <Function Name="P_INGRESAR_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
           <Parameter Name="MONTO" Type="number" Mode="In" />
           <Parameter Name="ID_F_PAGO" Type="number" Mode="In" />
           <Parameter Name="RUT" Type="varchar2" Mode="In" />
@@ -448,6 +557,8 @@
           <EntitySet Name="RESERVA" EntityType="Model.RESERVA" />
           <EntitySet Name="PACIENTEESPERA" EntityType="Model.PACIENTEESPERA" />
           <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.PACIENTESNOPAGO" />
+          <EntitySet Name="PICIENTESNOPAGO" EntityType="Model.PICIENTESNOPAGO" />
+          <EntitySet Name="RECAUDACION" EntityType="Model.RECAUDACION" />
           <AssociationSet Name="AGENDA_MEDICO_MEDICO_FK" Association="Model.AGENDA_MEDICO_MEDICO_FK">
             <End Role="MEDICO" EntitySet="MEDICO" />
             <End Role="AGENDA_MEDICO" EntitySet="AGENDA_MEDICO" />
@@ -504,6 +615,10 @@
             <End Role="PERSONA" EntitySet="PERSONA" />
             <End Role="RESERVA" EntitySet="RESERVA" />
           </AssociationSet>
+          <AssociationSet Name="MED_CENTRO" Association="Model.MED_CENTRO">
+            <End Role="MEDICO" EntitySet="MEDICO" />
+            <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
+          </AssociationSet>
           <FunctionImport Name="P_INGRESAR_PAGOS">
             <Parameter Name="MONTO" Mode="In" Type="Decimal" />
             <Parameter Name="ID_F_PAGO" Mode="In" Type="Decimal" />
@@ -524,6 +639,8 @@
           <Property Name="HORAS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="MINUTOS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="HORA_FINAL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MINUTO_FINAL" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="MEDICO" Relationship="Model.AGENDA_MEDICO_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="MEDICO" />
           <NavigationProperty Name="PAGO" Relationship="Model.PAGO_AGENDA_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="PAGO" />
           <NavigationProperty Name="RESERVA" Relationship="Model.RESERVA_AGENDA_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="RESERVA" />
@@ -550,6 +667,7 @@
           <Property Name="REGION" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="ATENCION" Relationship="Model.ATENCION_CENTRO_MEDICO_FK" FromRole="CENTRO_MEDICO" ToRole="ATENCION" />
           <NavigationProperty Name="MEDICO" Relationship="Model.MEDICO_CENTRO_MEDICO_FK" FromRole="CENTRO_MEDICO" ToRole="MEDICO" />
+          <NavigationProperty Name="MEDICO1" Relationship="Model.MED_CENTRO" FromRole="CENTRO_MEDICO" ToRole="MEDICO" />
         </EntityType>
         <EntityType Name="COMISION">
           <Key>
@@ -594,6 +712,7 @@
           <NavigationProperty Name="CENTRO_MEDICO" Relationship="Model.MEDICO_CENTRO_MEDICO_FK" FromRole="MEDICO" ToRole="CENTRO_MEDICO" />
           <NavigationProperty Name="COMISION" Relationship="Model.COMISION_MEDICO_FK" FromRole="MEDICO" ToRole="COMISION" />
           <NavigationProperty Name="PERSONA" Relationship="Model.MEDICO_PERSONA_FK" FromRole="MEDICO" ToRole="PERSONA" />
+          <NavigationProperty Name="CENTRO_MEDICO1" Relationship="Model.MED_CENTRO" FromRole="MEDICO" ToRole="CENTRO_MEDICO" />
         </EntityType>
         <EntityType Name="PAGO">
           <Key>
@@ -634,7 +753,7 @@
           <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="CORREO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
           <Property Name="ID_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="CLAVE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+          <Property Name="CLAVE" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
           <NavigationProperty Name="MEDICO" Relationship="Model.MEDICO_PERSONA_FK" FromRole="PERSONA" ToRole="MEDICO" />
           <NavigationProperty Name="PAGO" Relationship="Model.PAGO_PERSONA_FK" FromRole="PERSONA" ToRole="PAGO" />
           <NavigationProperty Name="PERFIL" Relationship="Model.PERSONA_PERFIL_FK" FromRole="PERSONA" ToRole="PERFIL" />
@@ -688,6 +807,37 @@
           <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
           <Property Name="ID_AGEN_MED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
           <Property Name="ID_MEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="PICIENTESNOPAGO">
+          <Key>
+            <PropertyRef Name="PERSONA_RUT" />
+            <PropertyRef Name="FECHA_RESERVA" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="ID_AGEN_MED" />
+            <PropertyRef Name="ID_MEDICO" />
+          </Key>
+          <Property Name="NOMBRE" Type="String" MaxLength="92" Unicode="false" FixedLength="false" />
+          <Property Name="PERSONA_RUT" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="ID_AGEN_MED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ID_MEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="RECAUDACION">
+          <Key>
+            <PropertyRef Name="FECHA" />
+            <PropertyRef Name="RUT_MEDICO" />
+            <PropertyRef Name="NOMBRE" />
+            <PropertyRef Name="APELLIDO_PAT" />
+            <PropertyRef Name="APELLIDO_MAT" />
+          </Key>
+          <Property Name="FECHA" Type="DateTime" Nullable="false" />
+          <Property Name="PACIENTE_ATENDIDOS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RUT_MEDICO" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="APELLIDO_PAT" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="APELLIDO_MAT" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="MONTO" Type="Decimal" Precision="38" Scale="0" />
         </EntityType>
         <Association Name="AGENDA_MEDICO_MEDICO_FK">
           <End Role="MEDICO" Type="Model.MEDICO" Multiplicity="1" />
@@ -857,6 +1007,10 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="MED_CENTRO">
+          <End Role="MEDICO" Type="Model.MEDICO" Multiplicity="*" />
+          <End Role="CENTRO_MEDICO" Type="Model.CENTRO_MEDICO" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -872,6 +1026,8 @@
                 <ScalarProperty Name="HORAS" ColumnName="HORAS" />
                 <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="HORA_FINAL" ColumnName="HORA_FINAL" />
+                <ScalarProperty Name="MINUTO_FINAL" ColumnName="MINUTO_FINAL" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1015,6 +1171,39 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="PICIENTESNOPAGO">
+            <EntityTypeMapping TypeName="Model.PICIENTESNOPAGO">
+              <MappingFragment StoreEntitySet="PICIENTESNOPAGO">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
+                <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
+                <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RECAUDACION">
+            <EntityTypeMapping TypeName="Model.RECAUDACION">
+              <MappingFragment StoreEntitySet="RECAUDACION">
+                <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+                <ScalarProperty Name="PACIENTE_ATENDIDOS" ColumnName="PACIENTE_ATENDIDOS" />
+                <ScalarProperty Name="RUT_MEDICO" ColumnName="RUT_MEDICO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="APELLIDO_PAT" ColumnName="APELLIDO_PAT" />
+                <ScalarProperty Name="APELLIDO_MAT" ColumnName="APELLIDO_MAT" />
+                <ScalarProperty Name="MONTO" ColumnName="MONTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MED_CENTRO" TypeName="Model.MED_CENTRO" StoreEntitySet="MED_CENTRO">
+            <EndProperty Name="MEDICO">
+              <ScalarProperty Name="ID_MEDICO" ColumnName="MEDICO_ID_MEDICO" />
+            </EndProperty>
+            <EndProperty Name="CENTRO_MEDICO">
+              <ScalarProperty Name="ID_CENTRO" ColumnName="CENTRO_MEDICO_ID_CENTRO" />
+            </EndProperty>
+          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="P_INGRESAR_PAGOS" FunctionName="Model.Store.P_INGRESAR_PAGOS" />
         </EntityContainerMapping>
       </Mapping>
@@ -1036,102 +1225,138 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="galenosEDM" ZoomLevel="57">
-        <EntityTypeShape EntityType="Model.AGENDA_MEDICO" Width="1.5" PointX="8.25" PointY="5.25" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.ATENCION" Width="1.5" PointX="3" PointY="5.5" Height="2.1725878906249996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.CENTRO_MEDICO" Width="1.5" PointX="0.75" PointY="5.375" Height="2.3648893229166656" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.COMISION" Width="1.5" PointX="15.75" PointY="5.25" Height="2.7494921874999996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.FERIADOS" Width="1.5" PointX="2.75" PointY="8.5" Height="1.7879850260416674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.FORMA_PAGO" Width="1.5" PointX="8.25" PointY="2.375" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.MEDICO" Width="1.5" PointX="6" PointY="5.375" Height="2.5571907552083317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PAGO" Width="1.5" PointX="10.5" PointY="4.875" Height="3.5186979166666674" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PERFIL" Width="1.5" PointX="1.5" PointY="1.75" Height="1.5956835937499996" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PERSONA" Width="1.5" PointX="3.75" PointY="0.75" Height="3.7109993489583353" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PREVISION" Width="1.5" PointX="8.25" PointY="8.75" Height="1.5956835937500031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.RESERVA" Width="1.5" PointX="13.5" PointY="5.625" Height="1.9802864583333317" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PACIENTEESPERA" Width="1.5" PointX="4.75" PointY="9.5" Height="2.1725878906250031" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.PACIENTESNOPAGO" Width="1.5" PointX="10.75" PointY="1.5" Height="2.1725878906250031" IsExpanded="true" />
+      <Diagram Name="galenosEDM" ZoomLevel="55">
+        <EntityTypeShape EntityType="Model.AGENDA_MEDICO" Width="1.5" PointX="7.5" PointY="4" Height="3.1340950520833335" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ATENCION" Width="1.5" PointX="12" PointY="8.625" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CENTRO_MEDICO" Width="1.5" PointX="7.5" PointY="7.875" Height="2.5571907552083326" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.COMISION" Width="1.5" PointX="15" PointY="5.375" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FERIADOS" Width="1.5" PointX="0.75" PointY="0.75" Height="1.7879850260416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FORMA_PAGO" Width="1.5" PointX="7.5" PointY="1.625" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MEDICO" Width="1.5" PointX="5.25" PointY="5.875" Height="2.7494921874999996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PAGO" Width="1.5" PointX="9.75" PointY="4.875" Height="3.5186979166666674" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PERFIL" Width="1.5" PointX="0.75" PointY="6.5" Height="1.5956835937499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PERSONA" Width="1.5" PointX="3" PointY="5.375" Height="3.7109993489583353" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PREVISION" Width="1.5" PointX="7.5" PointY="12" Height="1.5956835937500031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RESERVA" Width="1.5" PointX="12.75" PointY="5.625" Height="1.9802864583333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PACIENTEESPERA" Width="1.5" PointX="2.75" PointY="0.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PACIENTESNOPAGO" Width="1.5" PointX="4.75" PointY="0.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PICIENTESNOPAGO" Width="1.5" PointX="9.75" PointY="0.75" Height="2.1725878906250031" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.RECAUDACION" Width="1.5" PointX="0.75" PointY="10.75" Height="2.3648893229166674" IsExpanded="true" />
         <AssociationConnector Association="Model.AGENDA_MEDICO_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="6.6535953776041659" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="6.653595377604165" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="6.6535953776041659" />
-          <ConnectorPoint PointX="8.25" PointY="6.6535953776041659" />
+          <ConnectorPoint PointX="6.75" PointY="6.5045475260416667" />
+          <ConnectorPoint PointX="7.5" PointY="6.5045475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PAGO_AGENDA_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="6.62474609375" />
-          <ConnectorPoint PointX="10.5" PointY="6.62474609375" />
+          <ConnectorPoint PointX="9" PointY="6.0045475260416667" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="6.0045475260416659" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="6.0045475260416667" />
+          <ConnectorPoint PointX="9.75" PointY="6.0045475260416667" />
         </AssociationConnector>
         <AssociationConnector Association="Model.RESERVA_AGENDA_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="9" PointY="5.25" />
-          <ConnectorPoint PointX="9" PointY="4.625" />
-          <ConnectorPoint PointX="10.479164166666665" PointY="4.6249999999999991" />
-          <ConnectorPoint PointX="10.677083333333334" PointY="4.625" />
-          <ConnectorPoint PointX="13.125" PointY="4.625" />
-          <ConnectorPoint PointX="13.125" PointY="6.6151432291666659" />
-          <ConnectorPoint PointX="13.5" PointY="6.6151432291666659" />
+          <ConnectorPoint PointX="9" PointY="4.40625" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="4.4062499999999991" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="4.40625" />
+          <ConnectorPoint PointX="13.010414666666666" PointY="4.4062499999999991" />
+          <ConnectorPoint PointX="13.177081333333334" PointY="4.40625" />
+          <ConnectorPoint PointX="13.5" PointY="4.40625" />
+          <ConnectorPoint PointX="13.5" PointY="5.625" />
         </AssociationConnector>
         <AssociationConnector Association="Model.ATENCION_CENTRO_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="6.5862939453125" />
-          <ConnectorPoint PointX="3" PointY="6.5862939453125" />
+          <ConnectorPoint PointX="9" PointY="9.5285953776041659" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="9.5285953776041659" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="9.5285953776041659" />
+          <ConnectorPoint PointX="12" PointY="9.5285953776041659" />
         </AssociationConnector>
         <AssociationConnector Association="Model.ATENCION_PAGO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="10.5" PointY="8.2278450520833335" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="8.2278450520833335" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="8.2278450520833335" />
-          <ConnectorPoint PointX="3.75" PointY="8.2278450520833335" />
-          <ConnectorPoint PointX="3.75" PointY="7.672587890625" />
+          <ConnectorPoint PointX="11.25" PointY="8.0307421875" />
+          <ConnectorPoint PointX="11.666666666666666" PointY="8.0307421875" />
+          <ConnectorPoint PointX="11.833333333333334" PointY="8.0307421875" />
+          <ConnectorPoint PointX="12.34375" PointY="8.0307421875" />
+          <ConnectorPoint PointX="12.34375" PointY="8.625" />
         </AssociationConnector>
         <AssociationConnector Association="Model.MEDICO_CENTRO_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="2.25" PointY="5.40625" />
-          <ConnectorPoint PointX="4.822916666666667" PointY="5.4062499999999991" />
-          <ConnectorPoint PointX="4.989583333333333" PointY="5.40625" />
-          <ConnectorPoint PointX="6" PointY="5.40625" />
+          <ConnectorPoint PointX="7.5" PointY="8.24974609375" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="8.24974609375" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="8.24974609375" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="8.24974609375" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="8.24974609375" />
+          <ConnectorPoint PointX="6.75" PointY="8.24974609375" />
         </AssociationConnector>
         <AssociationConnector Association="Model.COMISION_MEDICO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.5" PointY="5.9830456888020827" />
-          <ConnectorPoint PointX="8" PointY="5.9830456888020827" />
-          <ConnectorPoint PointX="8" PointY="8.4994921875" />
-          <ConnectorPoint PointX="10.25" PointY="8.4994921875" />
-          <ConnectorPoint PointX="10.25" PointY="8.6436979166666674" />
-          <ConnectorPoint PointX="11.166666666666666" PointY="8.6436979166666674" />
-          <ConnectorPoint PointX="11.333333333333334" PointY="8.6436979166666674" />
-          <ConnectorPoint PointX="16.5" PointY="8.6436979166666674" />
-          <ConnectorPoint PointX="16.5" PointY="7.9994921875" />
+          <ConnectorPoint PointX="6" PointY="8.6244921875" />
+          <ConnectorPoint PointX="6" PointY="8.8744921875" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="8.8744921875" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="8.8744921875" />
+          <ConnectorPoint PointX="7.25" PointY="8.8744921875" />
+          <ConnectorPoint PointX="7.25" PointY="7.3840950520833335" />
+          <ConnectorPoint PointX="9.1666666666666661" PointY="7.3840950520833326" />
+          <ConnectorPoint PointX="9.3333333333333339" PointY="7.3840950520833335" />
+          <ConnectorPoint PointX="9.5" PointY="7.3840950520833335" />
+          <ConnectorPoint PointX="9.5" PointY="8.6436979166666674" />
+          <ConnectorPoint PointX="10.416666666666666" PointY="8.6436979166666674" />
+          <ConnectorPoint PointX="10.583333333333334" PointY="8.6436979166666674" />
+          <ConnectorPoint PointX="11.75" PointY="8.6436979166666674" />
+          <ConnectorPoint PointX="11.75" PointY="7.8552864583333317" />
+          <ConnectorPoint PointX="14.625" PointY="7.8552864583333317" />
+          <ConnectorPoint PointX="14.625" PointY="6.74974609375" />
+          <ConnectorPoint PointX="15" PointY="6.74974609375" />
         </AssociationConnector>
         <AssociationConnector Association="Model.COMISION_PAGO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="12" PointY="7.8336393229166656" />
-          <ConnectorPoint PointX="15.75" PointY="7.8336393229166656" />
+          <ConnectorPoint PointX="11.25" PointY="5.46875" />
+          <ConnectorPoint PointX="13.010414666666666" PointY="5.4687499999999991" />
+          <ConnectorPoint PointX="13.177081333333334" PointY="5.46875" />
+          <ConnectorPoint PointX="13.416666666666666" PointY="5.4687499999999991" />
+          <ConnectorPoint PointX="13.583333333333334" PointY="5.46875" />
+          <ConnectorPoint PointX="15" PointY="5.46875" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PAGO_FORMA_PAGO_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="3.8528857421875014" />
-          <ConnectorPoint PointX="10.59375" PointY="3.8528857421875014" />
-          <ConnectorPoint PointX="10.59375" PointY="4.875" />
+          <ConnectorPoint PointX="9" PointY="3.2195287475961534" />
+          <ConnectorPoint PointX="9.375" PointY="3.5945287475961534" />
+          <ConnectorPoint PointX="9.375" PointY="6.7255737890625014" />
+          <ConnectorPoint PointX="9.75" PointY="6.7255737890625014" />
         </AssociationConnector>
         <AssociationConnector Association="Model.MEDICO_PERSONA_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.90625" PointY="4.4609993489583353" />
-          <ConnectorPoint PointX="4.90625" PointY="7.8336393229166656" />
-          <ConnectorPoint PointX="6" PointY="7.8336393229166656" />
+          <ConnectorPoint PointX="4.5" PointY="7.24974609375" />
+          <ConnectorPoint PointX="5.25" PointY="7.24974609375" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PAGO_PERSONA_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="1.09375" />
-          <ConnectorPoint PointX="10.5624975" PointY="1.09375" />
-          <ConnectorPoint PointX="10.5624975" PointY="4.875" />
+          <ConnectorPoint PointX="3.75" PointY="9.0859993489583353" />
+          <ConnectorPoint PointX="3.75" PointY="9.3359993489583353" />
+          <ConnectorPoint PointX="7" PointY="9.3359993489583353" />
+          <ConnectorPoint PointX="7" PointY="7.6340950520833335" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="7.6340950520833326" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="7.6340950520833335" />
+          <ConnectorPoint PointX="9.25" PointY="7.6340950520833335" />
+          <ConnectorPoint PointX="9.25" PointY="5.4085217630208327" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="5.4085217630208318" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="5.4085217630208327" />
+          <ConnectorPoint PointX="9.75" PointY="5.4085217630208327" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PAGO_PREVISION_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="9.75" PointY="9.5478417968750016" />
-          <ConnectorPoint PointX="11.25" PointY="9.5478417968750016" />
-          <ConnectorPoint PointX="11.25" PointY="8.3936979166666674" />
+          <ConnectorPoint PointX="9" PointY="12.797841796875002" />
+          <ConnectorPoint PointX="10.5" PointY="12.797841796875002" />
+          <ConnectorPoint PointX="10.5" PointY="8.3936979166666674" />
         </AssociationConnector>
         <AssociationConnector Association="Model.PERSONA_PERFIL_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="3" PointY="2.547841796875" />
-          <ConnectorPoint PointX="3.75" PointY="2.547841796875" />
+          <ConnectorPoint PointX="2.25" PointY="7.297841796875" />
+          <ConnectorPoint PointX="3" PointY="7.297841796875" />
         </AssociationConnector>
         <AssociationConnector Association="Model.RESERVA_PERSONA_FK" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="4.2470914713541674" />
-          <ConnectorPoint PointX="10.479164166666665" PointY="4.2470914713541665" />
-          <ConnectorPoint PointX="10.677083333333334" PointY="4.2470914713541674" />
-          <ConnectorPoint PointX="14.25" PointY="4.2470914713541674" />
-          <ConnectorPoint PointX="14.25" PointY="5.625" />
+          <ConnectorPoint PointX="4.5" PointY="6.2811210468749987" />
+          <ConnectorPoint PointX="5" PointY="6.2811210468749987" />
+          <ConnectorPoint PointX="5" PointY="3.75" />
+          <ConnectorPoint PointX="9.2916666666666661" PointY="3.7499999999999996" />
+          <ConnectorPoint PointX="9.4583333333333339" PointY="3.75" />
+          <ConnectorPoint PointX="13.093748" PointY="3.75" />
+          <ConnectorPoint PointX="13.093748" PointY="5.625" />
+        </AssociationConnector>
+        <AssociationConnector Association="Model.MED_CENTRO" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="7.999873046875" />
+          <ConnectorPoint PointX="6.916666666666667" PointY="7.999873046874999" />
+          <ConnectorPoint PointX="7.083333333333333" PointY="7.999873046875" />
+          <ConnectorPoint PointX="7.166666666666667" PointY="7.999873046874999" />
+          <ConnectorPoint PointX="7.333333333333333" PointY="7.999873046875" />
+          <ConnectorPoint PointX="7.5" PointY="7.999873046875" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

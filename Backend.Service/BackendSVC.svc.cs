@@ -254,5 +254,22 @@ namespace Backend.Service
             Agenda_medico ag = new Agenda_medico();
             ag.EnviarCorreo();
         }
+
+
+
+        public List<Backend.Negocio.Recaudacion> listadoRecaaudacionXFechas(DateTime fechaini, DateTime fechafinal)
+        {
+            Recaudacion rec = new Recaudacion();
+
+            return rec.listadoRecaaudacionXFechas(fechaini, fechafinal);
+        }
+
+        public List<Backend.Negocio.Recaudacion> listadoRecaaudacionXFechasyMedico(string rut, DateTime fechaini, DateTime fechafinal)
+        {
+            Recaudacion rec = new Recaudacion();
+
+            return rec.listadoRecaaudacionXFechasyMedico(rut, fechaini, fechafinal);
+        }
+        
     }
 }

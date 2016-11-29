@@ -19,3 +19,10 @@ C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Negocio\bin\Debug\Backend.D
 C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.csprojResolveAssemblyReference.cache
 C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.dll
 C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.pdb
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\bin\Debug\Backend.Negocio.dll
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\bin\Debug\Backend.Negocio.pdb
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\bin\Debug\Backend.Datos.dll
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\bin\Debug\Backend.Datos.pdb
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.dll
+C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Negocio\obj\Debug\Backend.Negocio.pdb

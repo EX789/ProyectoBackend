@@ -102,6 +102,13 @@ namespace Backend.Service
 
         [OperationContract]
         void enviarCorreo();
+
+
+        [OperationContract]
+        List<Backend.Negocio.Recaudacion> listadoRecaaudacionXFechas(DateTime fechaini, DateTime fechafinal);
+
+        [OperationContract]
+        List<Backend.Negocio.Recaudacion> listadoRecaaudacionXFechasyMedico(string rut, DateTime fechaini, DateTime fechafinal);
         // TODO: agregue aquí sus operaciones de servicio
     }
 

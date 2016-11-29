@@ -33,6 +33,7 @@ using System.Xml.Serialization;
 [assembly: EdmRelationshipAttribute("Model", "PAGO_PREVISION_FK", "PREVISION", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Backend.Datos.PREVISION), "PAGO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Backend.Datos.PAGO), true)]
 [assembly: EdmRelationshipAttribute("Model", "PERSONA_PERFIL_FK", "PERFIL", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Backend.Datos.PERFIL), "PERSONA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Backend.Datos.PERSONA), true)]
 [assembly: EdmRelationshipAttribute("Model", "RESERVA_PERSONA_FK", "PERSONA", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(Backend.Datos.PERSONA), "RESERVA", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Backend.Datos.RESERVA), true)]
+[assembly: EdmRelationshipAttribute("Model", "MED_CENTRO", "MEDICO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Backend.Datos.MEDICO), "CENTRO_MEDICO", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(Backend.Datos.CENTRO_MEDICO))]
 
 #endregion
 
@@ -307,6 +308,38 @@ namespace Backend.Datos
             }
         }
         private ObjectSet<PACIENTESNOPAGO> _PACIENTESNOPAGO;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<PICIENTESNOPAGO> PICIENTESNOPAGO
+        {
+            get
+            {
+                if ((_PICIENTESNOPAGO == null))
+                {
+                    _PICIENTESNOPAGO = base.CreateObjectSet<PICIENTESNOPAGO>("PICIENTESNOPAGO");
+                }
+                return _PICIENTESNOPAGO;
+            }
+        }
+        private ObjectSet<PICIENTESNOPAGO> _PICIENTESNOPAGO;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<RECAUDACION> RECAUDACION
+        {
+            get
+            {
+                if ((_RECAUDACION == null))
+                {
+                    _RECAUDACION = base.CreateObjectSet<RECAUDACION>("RECAUDACION");
+                }
+                return _RECAUDACION;
+            }
+        }
+        private ObjectSet<RECAUDACION> _RECAUDACION;
 
         #endregion
 
@@ -422,6 +455,22 @@ namespace Backend.Datos
         public void AddToPACIENTESNOPAGO(PACIENTESNOPAGO pACIENTESNOPAGO)
         {
             base.AddObject("PACIENTESNOPAGO", pACIENTESNOPAGO);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet PICIENTESNOPAGO. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToPICIENTESNOPAGO(PICIENTESNOPAGO pICIENTESNOPAGO)
+        {
+            base.AddObject("PICIENTESNOPAGO", pICIENTESNOPAGO);
+        }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet RECAUDACION. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToRECAUDACION(RECAUDACION rECAUDACION)
+        {
+            base.AddObject("RECAUDACION", rECAUDACION);
         }
 
         #endregion
@@ -702,6 +751,54 @@ namespace Backend.Datos
         private global::System.String _DESCRIPCION;
         partial void OnDESCRIPCIONChanging(global::System.String value);
         partial void OnDESCRIPCIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> HORA_FINAL
+        {
+            get
+            {
+                return _HORA_FINAL;
+            }
+            set
+            {
+                OnHORA_FINALChanging(value);
+                ReportPropertyChanging("HORA_FINAL");
+                _HORA_FINAL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HORA_FINAL");
+                OnHORA_FINALChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _HORA_FINAL;
+        partial void OnHORA_FINALChanging(Nullable<global::System.Decimal> value);
+        partial void OnHORA_FINALChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> MINUTO_FINAL
+        {
+            get
+            {
+                return _MINUTO_FINAL;
+            }
+            set
+            {
+                OnMINUTO_FINALChanging(value);
+                ReportPropertyChanging("MINUTO_FINAL");
+                _MINUTO_FINAL = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MINUTO_FINAL");
+                OnMINUTO_FINALChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _MINUTO_FINAL;
+        partial void OnMINUTO_FINALChanging(Nullable<global::System.Decimal> value);
+        partial void OnMINUTO_FINALChanged();
 
         #endregion
 
@@ -1210,6 +1307,28 @@ namespace Backend.Datos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDICO>("Model.MEDICO_CENTRO_MEDICO_FK", "MEDICO", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "MED_CENTRO", "MEDICO")]
+        public EntityCollection<MEDICO> MEDICO1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<MEDICO>("Model.MED_CENTRO", "MEDICO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<MEDICO>("Model.MED_CENTRO", "MEDICO", value);
                 }
             }
         }
@@ -2002,6 +2121,28 @@ namespace Backend.Datos
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<PERSONA>("Model.MEDICO_PERSONA_FK", "PERSONA", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("Model", "MED_CENTRO", "CENTRO_MEDICO")]
+        public EntityCollection<CENTRO_MEDICO> CENTRO_MEDICO1
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<CENTRO_MEDICO>("Model.MED_CENTRO", "CENTRO_MEDICO");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<CENTRO_MEDICO>("Model.MED_CENTRO", "CENTRO_MEDICO", value);
                 }
             }
         }
@@ -2948,7 +3089,8 @@ namespace Backend.Datos
         /// <param name="tELEFONO">Valor inicial de la propiedad TELEFONO.</param>
         /// <param name="cORREO">Valor inicial de la propiedad CORREO.</param>
         /// <param name="iD_PERFIL">Valor inicial de la propiedad ID_PERFIL.</param>
-        public static PERSONA CreatePERSONA(global::System.String rUT, global::System.String nOMBRE, global::System.String aPELLIDO_PAT, global::System.String aPELLIDO_MAT, global::System.String dIRECCION, global::System.String cOMUNA, global::System.Decimal tELEFONO, global::System.String cORREO, global::System.Decimal iD_PERFIL)
+        /// <param name="cLAVE">Valor inicial de la propiedad CLAVE.</param>
+        public static PERSONA CreatePERSONA(global::System.String rUT, global::System.String nOMBRE, global::System.String aPELLIDO_PAT, global::System.String aPELLIDO_MAT, global::System.String dIRECCION, global::System.String cOMUNA, global::System.Decimal tELEFONO, global::System.String cORREO, global::System.Decimal iD_PERFIL, global::System.String cLAVE)
         {
             PERSONA pERSONA = new PERSONA();
             pERSONA.RUT = rUT;
@@ -2960,6 +3102,7 @@ namespace Backend.Datos
             pERSONA.TELEFONO = tELEFONO;
             pERSONA.CORREO = cORREO;
             pERSONA.ID_PERFIL = iD_PERFIL;
+            pERSONA.CLAVE = cLAVE;
             return pERSONA;
         }
 
@@ -3189,7 +3332,7 @@ namespace Backend.Datos
         /// <summary>
         /// No hay documentación de metadatos disponible.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
         public global::System.String CLAVE
         {
@@ -3201,7 +3344,7 @@ namespace Backend.Datos
             {
                 OnCLAVEChanging(value);
                 ReportPropertyChanging("CLAVE");
-                _CLAVE = StructuralObject.SetValidValue(value, true);
+                _CLAVE = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("CLAVE");
                 OnCLAVEChanged();
             }
@@ -3326,6 +3469,203 @@ namespace Backend.Datos
     /// <summary>
     /// No hay documentación de metadatos disponible.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="PICIENTESNOPAGO")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PICIENTESNOPAGO : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto PICIENTESNOPAGO.
+        /// </summary>
+        /// <param name="pERSONA_RUT">Valor inicial de la propiedad PERSONA_RUT.</param>
+        /// <param name="fECHA_RESERVA">Valor inicial de la propiedad FECHA_RESERVA.</param>
+        /// <param name="dESCRIPCION">Valor inicial de la propiedad DESCRIPCION.</param>
+        /// <param name="iD_AGEN_MED">Valor inicial de la propiedad ID_AGEN_MED.</param>
+        /// <param name="iD_MEDICO">Valor inicial de la propiedad ID_MEDICO.</param>
+        public static PICIENTESNOPAGO CreatePICIENTESNOPAGO(global::System.String pERSONA_RUT, global::System.DateTime fECHA_RESERVA, global::System.String dESCRIPCION, global::System.Decimal iD_AGEN_MED, global::System.Decimal iD_MEDICO)
+        {
+            PICIENTESNOPAGO pICIENTESNOPAGO = new PICIENTESNOPAGO();
+            pICIENTESNOPAGO.PERSONA_RUT = pERSONA_RUT;
+            pICIENTESNOPAGO.FECHA_RESERVA = fECHA_RESERVA;
+            pICIENTESNOPAGO.DESCRIPCION = dESCRIPCION;
+            pICIENTESNOPAGO.ID_AGEN_MED = iD_AGEN_MED;
+            pICIENTESNOPAGO.ID_MEDICO = iD_MEDICO;
+            return pICIENTESNOPAGO;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NOMBRE
+        {
+            get
+            {
+                return _NOMBRE;
+            }
+            set
+            {
+                OnNOMBREChanging(value);
+                ReportPropertyChanging("NOMBRE");
+                _NOMBRE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NOMBRE");
+                OnNOMBREChanged();
+            }
+        }
+        private global::System.String _NOMBRE;
+        partial void OnNOMBREChanging(global::System.String value);
+        partial void OnNOMBREChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String PERSONA_RUT
+        {
+            get
+            {
+                return _PERSONA_RUT;
+            }
+            set
+            {
+                if (_PERSONA_RUT != value)
+                {
+                    OnPERSONA_RUTChanging(value);
+                    ReportPropertyChanging("PERSONA_RUT");
+                    _PERSONA_RUT = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("PERSONA_RUT");
+                    OnPERSONA_RUTChanged();
+                }
+            }
+        }
+        private global::System.String _PERSONA_RUT;
+        partial void OnPERSONA_RUTChanging(global::System.String value);
+        partial void OnPERSONA_RUTChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHA_RESERVA
+        {
+            get
+            {
+                return _FECHA_RESERVA;
+            }
+            set
+            {
+                if (_FECHA_RESERVA != value)
+                {
+                    OnFECHA_RESERVAChanging(value);
+                    ReportPropertyChanging("FECHA_RESERVA");
+                    _FECHA_RESERVA = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("FECHA_RESERVA");
+                    OnFECHA_RESERVAChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHA_RESERVA;
+        partial void OnFECHA_RESERVAChanging(global::System.DateTime value);
+        partial void OnFECHA_RESERVAChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String DESCRIPCION
+        {
+            get
+            {
+                return _DESCRIPCION;
+            }
+            set
+            {
+                if (_DESCRIPCION != value)
+                {
+                    OnDESCRIPCIONChanging(value);
+                    ReportPropertyChanging("DESCRIPCION");
+                    _DESCRIPCION = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("DESCRIPCION");
+                    OnDESCRIPCIONChanged();
+                }
+            }
+        }
+        private global::System.String _DESCRIPCION;
+        partial void OnDESCRIPCIONChanging(global::System.String value);
+        partial void OnDESCRIPCIONChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ID_AGEN_MED
+        {
+            get
+            {
+                return _ID_AGEN_MED;
+            }
+            set
+            {
+                if (_ID_AGEN_MED != value)
+                {
+                    OnID_AGEN_MEDChanging(value);
+                    ReportPropertyChanging("ID_AGEN_MED");
+                    _ID_AGEN_MED = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_AGEN_MED");
+                    OnID_AGEN_MEDChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ID_AGEN_MED;
+        partial void OnID_AGEN_MEDChanging(global::System.Decimal value);
+        partial void OnID_AGEN_MEDChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Decimal ID_MEDICO
+        {
+            get
+            {
+                return _ID_MEDICO;
+            }
+            set
+            {
+                if (_ID_MEDICO != value)
+                {
+                    OnID_MEDICOChanging(value);
+                    ReportPropertyChanging("ID_MEDICO");
+                    _ID_MEDICO = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("ID_MEDICO");
+                    OnID_MEDICOChanged();
+                }
+            }
+        }
+        private global::System.Decimal _ID_MEDICO;
+        partial void OnID_MEDICOChanging(global::System.Decimal value);
+        partial void OnID_MEDICOChanged();
+
+        #endregion
+
+    
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="Model", Name="PREVISION")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -3430,6 +3770,227 @@ namespace Backend.Datos
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="RECAUDACION")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class RECAUDACION : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto RECAUDACION.
+        /// </summary>
+        /// <param name="fECHA">Valor inicial de la propiedad FECHA.</param>
+        /// <param name="rUT_MEDICO">Valor inicial de la propiedad RUT_MEDICO.</param>
+        /// <param name="nOMBRE">Valor inicial de la propiedad NOMBRE.</param>
+        /// <param name="aPELLIDO_PAT">Valor inicial de la propiedad APELLIDO_PAT.</param>
+        /// <param name="aPELLIDO_MAT">Valor inicial de la propiedad APELLIDO_MAT.</param>
+        public static RECAUDACION CreateRECAUDACION(global::System.DateTime fECHA, global::System.String rUT_MEDICO, global::System.String nOMBRE, global::System.String aPELLIDO_PAT, global::System.String aPELLIDO_MAT)
+        {
+            RECAUDACION rECAUDACION = new RECAUDACION();
+            rECAUDACION.FECHA = fECHA;
+            rECAUDACION.RUT_MEDICO = rUT_MEDICO;
+            rECAUDACION.NOMBRE = nOMBRE;
+            rECAUDACION.APELLIDO_PAT = aPELLIDO_PAT;
+            rECAUDACION.APELLIDO_MAT = aPELLIDO_MAT;
+            return rECAUDACION;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime FECHA
+        {
+            get
+            {
+                return _FECHA;
+            }
+            set
+            {
+                if (_FECHA != value)
+                {
+                    OnFECHAChanging(value);
+                    ReportPropertyChanging("FECHA");
+                    _FECHA = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("FECHA");
+                    OnFECHAChanged();
+                }
+            }
+        }
+        private global::System.DateTime _FECHA;
+        partial void OnFECHAChanging(global::System.DateTime value);
+        partial void OnFECHAChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> PACIENTE_ATENDIDOS
+        {
+            get
+            {
+                return _PACIENTE_ATENDIDOS;
+            }
+            set
+            {
+                OnPACIENTE_ATENDIDOSChanging(value);
+                ReportPropertyChanging("PACIENTE_ATENDIDOS");
+                _PACIENTE_ATENDIDOS = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PACIENTE_ATENDIDOS");
+                OnPACIENTE_ATENDIDOSChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _PACIENTE_ATENDIDOS;
+        partial void OnPACIENTE_ATENDIDOSChanging(Nullable<global::System.Decimal> value);
+        partial void OnPACIENTE_ATENDIDOSChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String RUT_MEDICO
+        {
+            get
+            {
+                return _RUT_MEDICO;
+            }
+            set
+            {
+                if (_RUT_MEDICO != value)
+                {
+                    OnRUT_MEDICOChanging(value);
+                    ReportPropertyChanging("RUT_MEDICO");
+                    _RUT_MEDICO = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("RUT_MEDICO");
+                    OnRUT_MEDICOChanged();
+                }
+            }
+        }
+        private global::System.String _RUT_MEDICO;
+        partial void OnRUT_MEDICOChanging(global::System.String value);
+        partial void OnRUT_MEDICOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String NOMBRE
+        {
+            get
+            {
+                return _NOMBRE;
+            }
+            set
+            {
+                if (_NOMBRE != value)
+                {
+                    OnNOMBREChanging(value);
+                    ReportPropertyChanging("NOMBRE");
+                    _NOMBRE = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("NOMBRE");
+                    OnNOMBREChanged();
+                }
+            }
+        }
+        private global::System.String _NOMBRE;
+        partial void OnNOMBREChanging(global::System.String value);
+        partial void OnNOMBREChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String APELLIDO_PAT
+        {
+            get
+            {
+                return _APELLIDO_PAT;
+            }
+            set
+            {
+                if (_APELLIDO_PAT != value)
+                {
+                    OnAPELLIDO_PATChanging(value);
+                    ReportPropertyChanging("APELLIDO_PAT");
+                    _APELLIDO_PAT = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("APELLIDO_PAT");
+                    OnAPELLIDO_PATChanged();
+                }
+            }
+        }
+        private global::System.String _APELLIDO_PAT;
+        partial void OnAPELLIDO_PATChanging(global::System.String value);
+        partial void OnAPELLIDO_PATChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String APELLIDO_MAT
+        {
+            get
+            {
+                return _APELLIDO_MAT;
+            }
+            set
+            {
+                if (_APELLIDO_MAT != value)
+                {
+                    OnAPELLIDO_MATChanging(value);
+                    ReportPropertyChanging("APELLIDO_MAT");
+                    _APELLIDO_MAT = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("APELLIDO_MAT");
+                    OnAPELLIDO_MATChanged();
+                }
+            }
+        }
+        private global::System.String _APELLIDO_MAT;
+        partial void OnAPELLIDO_MATChanging(global::System.String value);
+        partial void OnAPELLIDO_MATChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> MONTO
+        {
+            get
+            {
+                return _MONTO;
+            }
+            set
+            {
+                OnMONTOChanging(value);
+                ReportPropertyChanging("MONTO");
+                _MONTO = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("MONTO");
+                OnMONTOChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _MONTO;
+        partial void OnMONTOChanging(Nullable<global::System.Decimal> value);
+        partial void OnMONTOChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

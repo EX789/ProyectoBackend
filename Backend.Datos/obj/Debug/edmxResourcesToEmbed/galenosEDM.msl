@@ -189,5 +189,18 @@
       </EndProperty>
     </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="P_INGRESAR_PAGOS" FunctionName="Model.Store.P_INGRESAR_PAGOS" />
+    <EntitySetMapping Name="PAGOCOMISION">
+      <EntityTypeMapping TypeName="Model.PAGOCOMISION">
+        <MappingFragment StoreEntitySet="PAGOCOMISION">
+          <ScalarProperty Name="TOTAL_COMISION" ColumnName="TOTAL_COMISION" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+          <ScalarProperty Name="MES" ColumnName="MES" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="ACTUALIZA_COMISION" FunctionName="Model.Store.ACTUALIZA_COMISION" />
   </EntityContainerMapping>
 </Mapping>

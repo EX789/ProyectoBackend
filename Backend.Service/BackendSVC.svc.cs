@@ -270,6 +270,23 @@ namespace Backend.Service
 
             return rec.listadoRecaaudacionXFechasyMedico(rut, fechaini, fechafinal);
         }
+
+
+        public List<Backend.Negocio.PagoComision> listadoPagoComisiones()
+        {
+            PagoComision p = new PagoComision();
+
+
+            return p.listadoPagoComisiones();
+        }
+
+
+        public bool RealizarPagoComision(int mes, int anio, string rut, string comp)
+        {
+            Comision com = new Comision();
+
+            return com.RealizarPagoComision(mes, anio, rut, comp);
+        }
         
     }
 }

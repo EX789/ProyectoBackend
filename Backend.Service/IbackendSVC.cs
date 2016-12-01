@@ -110,6 +110,12 @@ namespace Backend.Service
         [OperationContract]
         List<Backend.Negocio.Recaudacion> listadoRecaaudacionXFechasyMedico(string rut, DateTime fechaini, DateTime fechafinal);
         // TODO: agregue aquí sus operaciones de servicio
+
+        [OperationContract]
+        List<Backend.Negocio.PagoComision> listadoPagoComisiones();
+
+        [OperationContract]
+        bool RealizarPagoComision(int mes, int anio, string rut, string comp);
     }
 
 

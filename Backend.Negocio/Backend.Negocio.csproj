@@ -45,10 +45,12 @@
     <Compile Include="Agenda_medico.cs" />
     <Compile Include="Atencion.cs" />
     <Compile Include="CentroMedico.cs" />
+    <Compile Include="Comision.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Paciente.cs" />
     <Compile Include="PacienteNoPago.cs" />
     <Compile Include="Pago.cs" />
+    <Compile Include="PagoComision.cs" />
     <Compile Include="Perfil.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

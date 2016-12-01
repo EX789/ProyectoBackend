@@ -34,6 +34,16 @@
       "PACIENTESNOPAGO"."ID_MEDICO" AS "ID_MEDICO"
       FROM "GALENOS"."PACIENTESNOPAGO" "PACIENTESNOPAGO"</DefiningQuery>
     </EntitySet>
+    <EntitySet Name="PAGOCOMISION" EntityType="Model.Store.PAGOCOMISION" store:Type="Views" store:Schema="GALENOS" store:Name="PAGOCOMISION">
+      <DefiningQuery>SELECT 
+      "PAGOCOMISION"."MES" AS "MES", 
+      "PAGOCOMISION"."ANIO" AS "ANIO", 
+      "PAGOCOMISION"."ESTADO" AS "ESTADO", 
+      "PAGOCOMISION"."RUT" AS "RUT", 
+      "PAGOCOMISION"."NOMBRE" AS "NOMBRE", 
+      "PAGOCOMISION"."TOTAL_COMISION" AS "TOTAL_COMISION"
+      FROM "GALENOS"."PAGOCOMISION" "PAGOCOMISION"</DefiningQuery>
+    </EntitySet>
     <EntitySet Name="PICIENTESNOPAGO" EntityType="Model.Store.PICIENTESNOPAGO" store:Type="Views" store:Schema="GALENOS" store:Name="PICIENTESNOPAGO">
       <DefiningQuery>SELECT 
       "PICIENTESNOPAGO"."NOMBRE" AS "NOMBRE", 
@@ -284,6 +294,21 @@
     <Property Name="ID_MEDICO" Type="number" Nullable="false" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
+      advertencia 6002: La tabla o vista 'GALENOS.PAGOCOMISION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      -->
+  <EntityType Name="PAGOCOMISION">
+    <Key>
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="RUT" />
+    </Key>
+    <Property Name="MES" Type="varchar2" MaxLength="2" />
+    <Property Name="ANIO" Type="varchar2" MaxLength="4" />
+    <Property Name="ESTADO" Type="varchar2" Nullable="false" MaxLength="20" />
+    <Property Name="RUT" Type="varchar2" Nullable="false" MaxLength="15" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="92" />
+    <Property Name="TOTAL_COMISION" Type="number" />
+  </EntityType>
+  <!--Se encontraron errores durante la generación:
       advertencia 6002: La tabla o vista 'GALENOS.PICIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="PICIENTESNOPAGO">
@@ -512,6 +537,12 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="ACTUALIZA_COMISION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+    <Parameter Name="MES" Type="number" Mode="In" />
+    <Parameter Name="ANIO" Type="number" Mode="In" />
+    <Parameter Name="RUT" Type="varchar2" Mode="In" />
+    <Parameter Name="COMP" Type="varchar2" Mode="In" />
+  </Function>
   <Function Name="F_RECUPERAD_ID" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
     <Parameter Name="ID_MED" Type="number" Mode="In" />
   </Function>

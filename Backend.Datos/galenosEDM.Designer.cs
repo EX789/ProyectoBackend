@@ -340,6 +340,22 @@ namespace Backend.Datos
             }
         }
         private ObjectSet<RECAUDACION> _RECAUDACION;
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        public ObjectSet<PAGOCOMISION> PAGOCOMISION
+        {
+            get
+            {
+                if ((_PAGOCOMISION == null))
+                {
+                    _PAGOCOMISION = base.CreateObjectSet<PAGOCOMISION>("PAGOCOMISION");
+                }
+                return _PAGOCOMISION;
+            }
+        }
+        private ObjectSet<PAGOCOMISION> _PAGOCOMISION;
 
         #endregion
 
@@ -472,6 +488,14 @@ namespace Backend.Datos
         {
             base.AddObject("RECAUDACION", rECAUDACION);
         }
+    
+        /// <summary>
+        /// Método desusado para agregar un nuevo objeto al EntitySet PAGOCOMISION. Considere la posibilidad de usar el método .Add de la propiedad ObjectSet&lt;T&gt; asociada.
+        /// </summary>
+        public void AddToPAGOCOMISION(PAGOCOMISION pAGOCOMISION)
+        {
+            base.AddObject("PAGOCOMISION", pAGOCOMISION);
+        }
 
         #endregion
 
@@ -560,6 +584,58 @@ namespace Backend.Datos
             }
     
             return base.ExecuteFunction("P_INGRESAR_PAGOS", mONTOParameter, iD_F_PAGOParameter, rUTParameter, iD_A_MEDParameter, iD_PREVParameter, pORC_COMISIONParameter, iD_MEDICOParameter);
+        }
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        /// <param name="mES">No hay documentación de metadatos disponible.</param>
+        /// <param name="aNIO">No hay documentación de metadatos disponible.</param>
+        /// <param name="rUT">No hay documentación de metadatos disponible.</param>
+        /// <param name="cOMP">No hay documentación de metadatos disponible.</param>
+        public int ACTUALIZA_COMISION(Nullable<global::System.Decimal> mES, Nullable<global::System.Decimal> aNIO, global::System.String rUT, global::System.String cOMP)
+        {
+            ObjectParameter mESParameter;
+            if (mES.HasValue)
+            {
+                mESParameter = new ObjectParameter("MES", mES);
+            }
+            else
+            {
+                mESParameter = new ObjectParameter("MES", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter aNIOParameter;
+            if (aNIO.HasValue)
+            {
+                aNIOParameter = new ObjectParameter("ANIO", aNIO);
+            }
+            else
+            {
+                aNIOParameter = new ObjectParameter("ANIO", typeof(global::System.Decimal));
+            }
+    
+            ObjectParameter rUTParameter;
+            if (rUT != null)
+            {
+                rUTParameter = new ObjectParameter("RUT", rUT);
+            }
+            else
+            {
+                rUTParameter = new ObjectParameter("RUT", typeof(global::System.String));
+            }
+    
+            ObjectParameter cOMPParameter;
+            if (cOMP != null)
+            {
+                cOMPParameter = new ObjectParameter("COMP", cOMP);
+            }
+            else
+            {
+                cOMPParameter = new ObjectParameter("COMP", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("ACTUALIZA_COMISION", mESParameter, aNIOParameter, rUTParameter, cOMPParameter);
         }
 
         #endregion
@@ -2956,6 +3032,188 @@ namespace Backend.Datos
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No hay documentación de metadatos disponible.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="Model", Name="PAGOCOMISION")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class PAGOCOMISION : EntityObject
+    {
+        #region Método de generador
+    
+        /// <summary>
+        /// Crear un nuevo objeto PAGOCOMISION.
+        /// </summary>
+        /// <param name="eSTADO">Valor inicial de la propiedad ESTADO.</param>
+        /// <param name="rUT">Valor inicial de la propiedad RUT.</param>
+        public static PAGOCOMISION CreatePAGOCOMISION(global::System.String eSTADO, global::System.String rUT)
+        {
+            PAGOCOMISION pAGOCOMISION = new PAGOCOMISION();
+            pAGOCOMISION.ESTADO = eSTADO;
+            pAGOCOMISION.RUT = rUT;
+            return pAGOCOMISION;
+        }
+
+        #endregion
+
+        #region Propiedades primitivas
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String MES
+        {
+            get
+            {
+                return _MES;
+            }
+            set
+            {
+                OnMESChanging(value);
+                ReportPropertyChanging("MES");
+                _MES = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("MES");
+                OnMESChanged();
+            }
+        }
+        private global::System.String _MES;
+        partial void OnMESChanging(global::System.String value);
+        partial void OnMESChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String ANIO
+        {
+            get
+            {
+                return _ANIO;
+            }
+            set
+            {
+                OnANIOChanging(value);
+                ReportPropertyChanging("ANIO");
+                _ANIO = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("ANIO");
+                OnANIOChanged();
+            }
+        }
+        private global::System.String _ANIO;
+        partial void OnANIOChanging(global::System.String value);
+        partial void OnANIOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String ESTADO
+        {
+            get
+            {
+                return _ESTADO;
+            }
+            set
+            {
+                if (_ESTADO != value)
+                {
+                    OnESTADOChanging(value);
+                    ReportPropertyChanging("ESTADO");
+                    _ESTADO = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("ESTADO");
+                    OnESTADOChanged();
+                }
+            }
+        }
+        private global::System.String _ESTADO;
+        partial void OnESTADOChanging(global::System.String value);
+        partial void OnESTADOChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String RUT
+        {
+            get
+            {
+                return _RUT;
+            }
+            set
+            {
+                if (_RUT != value)
+                {
+                    OnRUTChanging(value);
+                    ReportPropertyChanging("RUT");
+                    _RUT = StructuralObject.SetValidValue(value, false);
+                    ReportPropertyChanged("RUT");
+                    OnRUTChanged();
+                }
+            }
+        }
+        private global::System.String _RUT;
+        partial void OnRUTChanging(global::System.String value);
+        partial void OnRUTChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String NOMBRE
+        {
+            get
+            {
+                return _NOMBRE;
+            }
+            set
+            {
+                OnNOMBREChanging(value);
+                ReportPropertyChanging("NOMBRE");
+                _NOMBRE = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("NOMBRE");
+                OnNOMBREChanged();
+            }
+        }
+        private global::System.String _NOMBRE;
+        partial void OnNOMBREChanging(global::System.String value);
+        partial void OnNOMBREChanged();
+    
+        /// <summary>
+        /// No hay documentación de metadatos disponible.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Decimal> TOTAL_COMISION
+        {
+            get
+            {
+                return _TOTAL_COMISION;
+            }
+            set
+            {
+                OnTOTAL_COMISIONChanging(value);
+                ReportPropertyChanging("TOTAL_COMISION");
+                _TOTAL_COMISION = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TOTAL_COMISION");
+                OnTOTAL_COMISIONChanged();
+            }
+        }
+        private Nullable<global::System.Decimal> _TOTAL_COMISION;
+        partial void OnTOTAL_COMISIONChanging(Nullable<global::System.Decimal> value);
+        partial void OnTOTAL_COMISIONChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

@@ -86,6 +86,13 @@
       <Parameter Name="PORC_COMISION" Mode="In" Type="Decimal" />
       <Parameter Name="ID_MEDICO" Mode="In" Type="Decimal" />
     </FunctionImport>
+    <EntitySet Name="PAGOCOMISION" EntityType="Model.PAGOCOMISION" />
+    <FunctionImport Name="ACTUALIZA_COMISION">
+      <Parameter Name="MES" Mode="In" Type="Decimal" />
+      <Parameter Name="ANIO" Mode="In" Type="Decimal" />
+      <Parameter Name="RUT" Mode="In" Type="String" />
+      <Parameter Name="COMP" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="AGENDA_MEDICO">
     <Key>
@@ -469,4 +476,16 @@
     <End Role="MEDICO" Type="Model.MEDICO" Multiplicity="*" />
     <End Role="CENTRO_MEDICO" Type="Model.CENTRO_MEDICO" Multiplicity="*" />
   </Association>
+  <EntityType Name="PAGOCOMISION">
+    <Key>
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="RUT" />
+    </Key>
+    <Property Type="String" Name="MES" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ANIO" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="RUT" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NOMBRE" MaxLength="92" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="TOTAL_COMISION" Precision="38" Scale="0" />
+  </EntityType>
 </Schema>

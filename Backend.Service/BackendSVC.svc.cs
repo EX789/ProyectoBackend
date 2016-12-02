@@ -249,10 +249,10 @@ namespace Backend.Service
 
 
 
-        public void enviarCorreo()
+        public void enviarCorreo(string correo)
         {
             Agenda_medico ag = new Agenda_medico();
-            ag.EnviarCorreo();
+            ag.EnviarCorreo(correo);
         }
 
 

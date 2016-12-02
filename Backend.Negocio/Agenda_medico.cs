@@ -176,7 +176,7 @@ namespace Backend.Negocio
 
         }
 
-        public void EnviarCorreo()
+        public void EnviarCorreo(string correo)
         {
             /*-------------------------MENSAJE DE CORREO----------------------*/
 
@@ -184,7 +184,7 @@ namespace Backend.Negocio
             System.Net.Mail.MailMessage mmsg = new System.Net.Mail.MailMessage();
 
             //Direccion de correo electronico a la que queremos enviar el mensaje
-            mmsg.To.Add("raider304@hotmail.com");
+            mmsg.To.Add(correo);
 
             //Nota: La propiedad To es una colección que permite enviar el mensaje a más de un destinatario
 
@@ -201,7 +201,7 @@ namespace Backend.Negocio
             mmsg.IsBodyHtml = false; //Si no queremos que se envíe como HTML
 
             //Correo electronico desde la que enviamos el mensaje
-            mmsg.From = new System.Net.Mail.MailAddress("raider304@gmail.com");
+            mmsg.From = new System.Net.Mail.MailAddress("CentroMedicoGalenosNoReplay@gmail.com");
 
 
             /*-------------------------CLIENTE DE CORREO----------------------*/
@@ -211,7 +211,7 @@ namespace Backend.Negocio
 
             //Hay que crear las credenciales del correo emisor
             cliente.Credentials =
-                new System.Net.NetworkCredential("raider304@gmail.com", "salvatore789");
+                new System.Net.NetworkCredential("CentroMedicoGalenosNoReplay@gmail.com", "CentroMedico");
 
             //Lo siguiente es obligatorio si enviamos el mensaje desde Gmail
             

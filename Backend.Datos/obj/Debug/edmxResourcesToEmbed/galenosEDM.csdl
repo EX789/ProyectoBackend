@@ -15,7 +15,7 @@
     <EntitySet Name="RESERVA" EntityType="Model.RESERVA" />
     <EntitySet Name="PACIENTEESPERA" EntityType="Model.PACIENTEESPERA" />
     <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.PACIENTESNOPAGO" />
-    <EntitySet Name="PICIENTESNOPAGO" EntityType="Model.PICIENTESNOPAGO" />
+    <EntitySet Name="PAGOCOMISION" EntityType="Model.PAGOCOMISION" />
     <EntitySet Name="RECAUDACION" EntityType="Model.RECAUDACION" />
     <AssociationSet Name="AGENDA_MEDICO_MEDICO_FK" Association="Model.AGENDA_MEDICO_MEDICO_FK">
       <End Role="MEDICO" EntitySet="MEDICO" />
@@ -73,10 +73,6 @@
       <End Role="PERSONA" EntitySet="PERSONA" />
       <End Role="RESERVA" EntitySet="RESERVA" />
     </AssociationSet>
-    <AssociationSet Name="MED_CENTRO" Association="Model.MED_CENTRO">
-      <End Role="MEDICO" EntitySet="MEDICO" />
-      <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
-    </AssociationSet>
     <FunctionImport Name="P_INGRESAR_PAGOS">
       <Parameter Name="MONTO" Mode="In" Type="Decimal" />
       <Parameter Name="ID_F_PAGO" Mode="In" Type="Decimal" />
@@ -86,7 +82,6 @@
       <Parameter Name="PORC_COMISION" Mode="In" Type="Decimal" />
       <Parameter Name="ID_MEDICO" Mode="In" Type="Decimal" />
     </FunctionImport>
-    <EntitySet Name="PAGOCOMISION" EntityType="Model.PAGOCOMISION" />
     <FunctionImport Name="ACTUALIZA_COMISION">
       <Parameter Name="MES" Mode="In" Type="Decimal" />
       <Parameter Name="ANIO" Mode="In" Type="Decimal" />
@@ -104,8 +99,6 @@
     <Property Name="HORAS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="MINUTOS" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-    <Property Name="HORA_FINAL" Type="Decimal" Precision="38" Scale="0" />
-    <Property Name="MINUTO_FINAL" Type="Decimal" Precision="38" Scale="0" />
     <NavigationProperty Name="MEDICO" Relationship="Model.AGENDA_MEDICO_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="MEDICO" />
     <NavigationProperty Name="PAGO" Relationship="Model.PAGO_AGENDA_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="PAGO" />
     <NavigationProperty Name="RESERVA" Relationship="Model.RESERVA_AGENDA_MEDICO_FK" FromRole="AGENDA_MEDICO" ToRole="RESERVA" />
@@ -132,7 +125,6 @@
     <Property Name="REGION" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="ATENCION" Relationship="Model.ATENCION_CENTRO_MEDICO_FK" FromRole="CENTRO_MEDICO" ToRole="ATENCION" />
     <NavigationProperty Name="MEDICO" Relationship="Model.MEDICO_CENTRO_MEDICO_FK" FromRole="CENTRO_MEDICO" ToRole="MEDICO" />
-    <NavigationProperty Name="MEDICO1" Relationship="Model.MED_CENTRO" FromRole="CENTRO_MEDICO" ToRole="MEDICO" />
   </EntityType>
   <EntityType Name="COMISION">
     <Key>
@@ -177,7 +169,6 @@
     <NavigationProperty Name="CENTRO_MEDICO" Relationship="Model.MEDICO_CENTRO_MEDICO_FK" FromRole="MEDICO" ToRole="CENTRO_MEDICO" />
     <NavigationProperty Name="COMISION" Relationship="Model.COMISION_MEDICO_FK" FromRole="MEDICO" ToRole="COMISION" />
     <NavigationProperty Name="PERSONA" Relationship="Model.MEDICO_PERSONA_FK" FromRole="MEDICO" ToRole="PERSONA" />
-    <NavigationProperty Name="CENTRO_MEDICO1" Relationship="Model.MED_CENTRO" FromRole="MEDICO" ToRole="CENTRO_MEDICO" />
   </EntityType>
   <EntityType Name="PAGO">
     <Key>
@@ -218,7 +209,7 @@
     <Property Name="TELEFONO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="CORREO" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
     <Property Name="ID_PERFIL" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-    <Property Name="CLAVE" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CLAVE" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <NavigationProperty Name="MEDICO" Relationship="Model.MEDICO_PERSONA_FK" FromRole="PERSONA" ToRole="MEDICO" />
     <NavigationProperty Name="PAGO" Relationship="Model.PAGO_PERSONA_FK" FromRole="PERSONA" ToRole="PAGO" />
     <NavigationProperty Name="PERFIL" Relationship="Model.PERSONA_PERFIL_FK" FromRole="PERSONA" ToRole="PERFIL" />
@@ -273,20 +264,17 @@
     <Property Name="ID_AGEN_MED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
     <Property Name="ID_MEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
   </EntityType>
-  <EntityType Name="PICIENTESNOPAGO">
+  <EntityType Name="PAGOCOMISION">
     <Key>
-      <PropertyRef Name="PERSONA_RUT" />
-      <PropertyRef Name="FECHA_RESERVA" />
-      <PropertyRef Name="DESCRIPCION" />
-      <PropertyRef Name="ID_AGEN_MED" />
-      <PropertyRef Name="ID_MEDICO" />
+      <PropertyRef Name="ESTADO" />
+      <PropertyRef Name="RUT" />
     </Key>
+    <Property Name="MES" Type="String" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="ANIO" Type="String" MaxLength="4" Unicode="false" FixedLength="false" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="RUT" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
     <Property Name="NOMBRE" Type="String" MaxLength="92" Unicode="false" FixedLength="false" />
-    <Property Name="PERSONA_RUT" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-    <Property Name="FECHA_RESERVA" Type="DateTime" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="15" Unicode="false" FixedLength="false" />
-    <Property Name="ID_AGEN_MED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-    <Property Name="ID_MEDICO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+    <Property Name="TOTAL_COMISION" Type="Decimal" Precision="38" Scale="0" />
   </EntityType>
   <EntityType Name="RECAUDACION">
     <Key>
@@ -472,20 +460,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="MED_CENTRO">
-    <End Role="MEDICO" Type="Model.MEDICO" Multiplicity="*" />
-    <End Role="CENTRO_MEDICO" Type="Model.CENTRO_MEDICO" Multiplicity="*" />
-  </Association>
-  <EntityType Name="PAGOCOMISION">
-    <Key>
-      <PropertyRef Name="ESTADO" />
-      <PropertyRef Name="RUT" />
-    </Key>
-    <Property Type="String" Name="MES" MaxLength="2" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="ANIO" MaxLength="4" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="ESTADO" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="RUT" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-    <Property Type="String" Name="NOMBRE" MaxLength="92" FixedLength="false" Unicode="false" />
-    <Property Type="Decimal" Name="TOTAL_COMISION" Precision="38" Scale="0" />
-  </EntityType>
 </Schema>

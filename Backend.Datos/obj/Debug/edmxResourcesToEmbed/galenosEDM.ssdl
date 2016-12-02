@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+<Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
   <EntityContainer Name="ModelStoreContainer">
-    <EntitySet Name="AGENDA_MEDICO" EntityType="Model.Store.AGENDA_MEDICO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="ATENCION" EntityType="Model.Store.ATENCION" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="CENTRO_MEDICO" EntityType="Model.Store.CENTRO_MEDICO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="COMISION" EntityType="Model.Store.COMISION" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="FERIADOS" EntityType="Model.Store.FERIADOS" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="FORMA_PAGO" EntityType="Model.Store.FORMA_PAGO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="MED_CENTRO" EntityType="Model.Store.MED_CENTRO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="MEDICO" EntityType="Model.Store.MEDICO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="PAGO" EntityType="Model.Store.PAGO" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="PERFIL" EntityType="Model.Store.PERFIL" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="PERSONA" EntityType="Model.Store.PERSONA" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="PREVISION" EntityType="Model.Store.PREVISION" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="RESERVA" EntityType="Model.Store.RESERVA" store:Type="Tables" Schema="GALENOS" />
-    <EntitySet Name="PACIENTEESPERA" EntityType="Model.Store.PACIENTEESPERA" store:Type="Views" store:Schema="GALENOS" store:Name="PACIENTEESPERA">
+    <EntitySet Name="AGENDA_MEDICO" EntityType="Model.Store.AGENDA_MEDICO" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="ATENCION" EntityType="Model.Store.ATENCION" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="CENTRO_MEDICO" EntityType="Model.Store.CENTRO_MEDICO" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="COMISION" EntityType="Model.Store.COMISION" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="FERIADOS" EntityType="Model.Store.FERIADOS" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="FORMA_PAGO" EntityType="Model.Store.FORMA_PAGO" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="MEDICO" EntityType="Model.Store.MEDICO" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="PAGO" EntityType="Model.Store.PAGO" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="PERFIL" EntityType="Model.Store.PERFIL" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="PERSONA" EntityType="Model.Store.PERSONA" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="PREVISION" EntityType="Model.Store.PREVISION" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="RESERVA" EntityType="Model.Store.RESERVA" store:Type="Tables" Schema="GALENOSDB" />
+    <EntitySet Name="PACIENTEESPERA" EntityType="Model.Store.PACIENTEESPERA" store:Type="Views" store:Schema="GALENOSDB" store:Name="PACIENTEESPERA">
       <DefiningQuery>SELECT 
       "PACIENTEESPERA"."NOMBRE" AS "NOMBRE", 
       "PACIENTEESPERA"."HORAS" AS "HORAS", 
@@ -22,9 +21,9 @@
       "PACIENTEESPERA"."DESCRIPCION_ATENCION" AS "DESCRIPCION_ATENCION", 
       "PACIENTEESPERA"."PERSONA_RUT" AS "PERSONA_RUT", 
       "PACIENTEESPERA"."ID_PAGO" AS "ID_PAGO"
-      FROM "GALENOS"."PACIENTEESPERA" "PACIENTEESPERA"</DefiningQuery>
+      FROM "GALENOSDB"."PACIENTEESPERA" "PACIENTEESPERA"</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.Store.PACIENTESNOPAGO" store:Type="Views" store:Schema="GALENOS" store:Name="PACIENTESNOPAGO">
+    <EntitySet Name="PACIENTESNOPAGO" EntityType="Model.Store.PACIENTESNOPAGO" store:Type="Views" store:Schema="GALENOSDB" store:Name="PACIENTESNOPAGO">
       <DefiningQuery>SELECT 
       "PACIENTESNOPAGO"."NOMBRE" AS "NOMBRE", 
       "PACIENTESNOPAGO"."PERSONA_RUT" AS "PERSONA_RUT", 
@@ -32,9 +31,9 @@
       "PACIENTESNOPAGO"."DESCRIPCION" AS "DESCRIPCION", 
       "PACIENTESNOPAGO"."ID_AGEN_MED" AS "ID_AGEN_MED", 
       "PACIENTESNOPAGO"."ID_MEDICO" AS "ID_MEDICO"
-      FROM "GALENOS"."PACIENTESNOPAGO" "PACIENTESNOPAGO"</DefiningQuery>
+      FROM "GALENOSDB"."PACIENTESNOPAGO" "PACIENTESNOPAGO"</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="PAGOCOMISION" EntityType="Model.Store.PAGOCOMISION" store:Type="Views" store:Schema="GALENOS" store:Name="PAGOCOMISION">
+    <EntitySet Name="PAGOCOMISION" EntityType="Model.Store.PAGOCOMISION" store:Type="Views" store:Schema="GALENOSDB" store:Name="PAGOCOMISION">
       <DefiningQuery>SELECT 
       "PAGOCOMISION"."MES" AS "MES", 
       "PAGOCOMISION"."ANIO" AS "ANIO", 
@@ -42,19 +41,9 @@
       "PAGOCOMISION"."RUT" AS "RUT", 
       "PAGOCOMISION"."NOMBRE" AS "NOMBRE", 
       "PAGOCOMISION"."TOTAL_COMISION" AS "TOTAL_COMISION"
-      FROM "GALENOS"."PAGOCOMISION" "PAGOCOMISION"</DefiningQuery>
+      FROM "GALENOSDB"."PAGOCOMISION" "PAGOCOMISION"</DefiningQuery>
     </EntitySet>
-    <EntitySet Name="PICIENTESNOPAGO" EntityType="Model.Store.PICIENTESNOPAGO" store:Type="Views" store:Schema="GALENOS" store:Name="PICIENTESNOPAGO">
-      <DefiningQuery>SELECT 
-      "PICIENTESNOPAGO"."NOMBRE" AS "NOMBRE", 
-      "PICIENTESNOPAGO"."PERSONA_RUT" AS "PERSONA_RUT", 
-      "PICIENTESNOPAGO"."FECHA_RESERVA" AS "FECHA_RESERVA", 
-      "PICIENTESNOPAGO"."DESCRIPCION" AS "DESCRIPCION", 
-      "PICIENTESNOPAGO"."ID_AGEN_MED" AS "ID_AGEN_MED", 
-      "PICIENTESNOPAGO"."ID_MEDICO" AS "ID_MEDICO"
-      FROM "GALENOS"."PICIENTESNOPAGO" "PICIENTESNOPAGO"</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="RECAUDACION" EntityType="Model.Store.RECAUDACION" store:Type="Views" store:Schema="GALENOS" store:Name="RECAUDACION">
+    <EntitySet Name="RECAUDACION" EntityType="Model.Store.RECAUDACION" store:Type="Views" store:Schema="GALENOSDB" store:Name="RECAUDACION">
       <DefiningQuery>SELECT 
       "RECAUDACION"."FECHA" AS "FECHA", 
       "RECAUDACION"."PACIENTE_ATENDIDOS" AS "PACIENTE_ATENDIDOS", 
@@ -63,7 +52,7 @@
       "RECAUDACION"."APELLIDO_PAT" AS "APELLIDO_PAT", 
       "RECAUDACION"."APELLIDO_MAT" AS "APELLIDO_MAT", 
       "RECAUDACION"."MONTO" AS "MONTO"
-      FROM "GALENOS"."RECAUDACION" "RECAUDACION"</DefiningQuery>
+      FROM "GALENOSDB"."RECAUDACION" "RECAUDACION"</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="AGENDA_MEDICO_MEDICO_FK" Association="Model.Store.AGENDA_MEDICO_MEDICO_FK">
       <End Role="MEDICO" EntitySet="MEDICO" />
@@ -84,14 +73,6 @@
     <AssociationSet Name="COMISION_PAGO_FK" Association="Model.Store.COMISION_PAGO_FK">
       <End Role="PAGO" EntitySet="PAGO" />
       <End Role="COMISION" EntitySet="COMISION" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ASS_4" Association="Model.Store.FK_ASS_4">
-      <End Role="MEDICO" EntitySet="MEDICO" />
-      <End Role="MED_CENTRO" EntitySet="MED_CENTRO" />
-    </AssociationSet>
-    <AssociationSet Name="FK_ASS_5" Association="Model.Store.FK_ASS_5">
-      <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
-      <End Role="MED_CENTRO" EntitySet="MED_CENTRO" />
     </AssociationSet>
     <AssociationSet Name="MEDICO_CENTRO_MEDICO_FK" Association="Model.Store.MEDICO_CENTRO_MEDICO_FK">
       <End Role="CENTRO_MEDICO" EntitySet="CENTRO_MEDICO" />
@@ -140,8 +121,6 @@
     <Property Name="HORAS" Type="number" Nullable="false" />
     <Property Name="MINUTOS" Type="number" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="15" />
-    <Property Name="HORA_FINAL" Type="number" />
-    <Property Name="MINUTO_FINAL" Type="number" />
   </EntityType>
   <EntityType Name="ATENCION">
     <Key>
@@ -190,14 +169,6 @@
     <Property Name="ID_FORMA_PAGO" Type="number" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="20" />
   </EntityType>
-  <EntityType Name="MED_CENTRO">
-    <Key>
-      <PropertyRef Name="MEDICO_ID_MEDICO" />
-      <PropertyRef Name="CENTRO_MEDICO_ID_CENTRO" />
-    </Key>
-    <Property Name="MEDICO_ID_MEDICO" Type="number" Nullable="false" />
-    <Property Name="CENTRO_MEDICO_ID_CENTRO" Type="number" Nullable="false" />
-  </EntityType>
   <EntityType Name="MEDICO">
     <Key>
       <PropertyRef Name="ID_MEDICO" />
@@ -239,7 +210,7 @@
     <Property Name="TELEFONO" Type="number" Nullable="false" />
     <Property Name="CORREO" Type="varchar2" Nullable="false" MaxLength="30" />
     <Property Name="ID_PERFIL" Type="number" Nullable="false" />
-    <Property Name="CLAVE" Type="varchar2" Nullable="false" MaxLength="10" />
+    <Property Name="CLAVE" Type="varchar2" MaxLength="10" />
   </EntityType>
   <EntityType Name="PREVISION">
     <Key>
@@ -258,7 +229,7 @@
     <Property Name="ID_AGEN_MED" Type="number" Nullable="false" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOS.PACIENTEESPERA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOSDB.PACIENTEESPERA' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="PACIENTEESPERA">
     <Key>
@@ -276,7 +247,7 @@
     <Property Name="ID_PAGO" Type="number" Nullable="false" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOS.PACIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOSDB.PACIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="PACIENTESNOPAGO">
     <Key>
@@ -294,7 +265,7 @@
     <Property Name="ID_MEDICO" Type="number" Nullable="false" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOS.PAGOCOMISION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOSDB.PAGOCOMISION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="PAGOCOMISION">
     <Key>
@@ -309,25 +280,7 @@
     <Property Name="TOTAL_COMISION" Type="number" />
   </EntityType>
   <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOS.PICIENTESNOPAGO' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
-      -->
-  <EntityType Name="PICIENTESNOPAGO">
-    <Key>
-      <PropertyRef Name="PERSONA_RUT" />
-      <PropertyRef Name="FECHA_RESERVA" />
-      <PropertyRef Name="DESCRIPCION" />
-      <PropertyRef Name="ID_AGEN_MED" />
-      <PropertyRef Name="ID_MEDICO" />
-    </Key>
-    <Property Name="NOMBRE" Type="varchar2" MaxLength="92" />
-    <Property Name="PERSONA_RUT" Type="varchar2" Nullable="false" MaxLength="15" />
-    <Property Name="FECHA_RESERVA" Type="date" Nullable="false" />
-    <Property Name="DESCRIPCION" Type="varchar2" Nullable="false" MaxLength="15" />
-    <Property Name="ID_AGEN_MED" Type="number" Nullable="false" />
-    <Property Name="ID_MEDICO" Type="number" Nullable="false" />
-  </EntityType>
-  <!--Se encontraron errores durante la generación:
-      advertencia 6002: La tabla o vista 'GALENOS.RECAUDACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
+      advertencia 6002: La tabla o vista 'GALENOSDB.RECAUDACION' no tiene ninguna clave principal definida. Se ha inferido la clave y la definición se creó como vista o tabla de solo lectura.
       -->
   <EntityType Name="RECAUDACION">
     <Key>
@@ -402,30 +355,6 @@
       </Principal>
       <Dependent Role="COMISION">
         <PropertyRef Name="ID_PAGO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ASS_4">
-    <End Role="MEDICO" Type="Model.Store.MEDICO" Multiplicity="1" />
-    <End Role="MED_CENTRO" Type="Model.Store.MED_CENTRO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="MEDICO">
-        <PropertyRef Name="ID_MEDICO" />
-      </Principal>
-      <Dependent Role="MED_CENTRO">
-        <PropertyRef Name="MEDICO_ID_MEDICO" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_ASS_5">
-    <End Role="CENTRO_MEDICO" Type="Model.Store.CENTRO_MEDICO" Multiplicity="1" />
-    <End Role="MED_CENTRO" Type="Model.Store.MED_CENTRO" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="CENTRO_MEDICO">
-        <PropertyRef Name="ID_CENTRO" />
-      </Principal>
-      <Dependent Role="MED_CENTRO">
-        <PropertyRef Name="CENTRO_MEDICO_ID_CENTRO" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -537,24 +466,16 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="ACTUALIZA_COMISION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+  <Function Name="ACTUALIZA_COMISION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOSDB">
     <Parameter Name="MES" Type="number" Mode="In" />
     <Parameter Name="ANIO" Type="number" Mode="In" />
     <Parameter Name="RUT" Type="varchar2" Mode="In" />
     <Parameter Name="COMP" Type="varchar2" Mode="In" />
   </Function>
-  <Function Name="F_RECUPERAD_ID" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+  <Function Name="F_RECUPERAD_ID" ReturnType="number" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOSDB">
     <Parameter Name="ID_MED" Type="number" Mode="In" />
   </Function>
-  <Function Name="PACIENTE_ESPERA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
-    <Parameter Name="ID_MEDICO" Type="number" Mode="In" />
-  </Function>
-  <Function Name="PROC_INFORME_RECAUDACION2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
-    <Parameter Name="RUT_MEDICO" Type="varchar2" Mode="In" />
-    <Parameter Name="FECHA_INICIO" Type="date" Mode="In" />
-    <Parameter Name="FECHA_TERMINO" Type="date" Mode="In" />
-  </Function>
-  <Function Name="P_INGRESAR_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOS">
+  <Function Name="P_INGRESAR_PAGOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="GALENOSDB">
     <Parameter Name="MONTO" Type="number" Mode="In" />
     <Parameter Name="ID_F_PAGO" Type="number" Mode="In" />
     <Parameter Name="RUT" Type="varchar2" Mode="In" />

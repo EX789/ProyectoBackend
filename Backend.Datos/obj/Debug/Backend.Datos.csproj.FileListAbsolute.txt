@@ -9,14 +9,13 @@ C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.dll
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\bin\Debug\Backend.Datos.pdb
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.dll
 C:\Users\raide\Desktop\ProyectoBackend\Backend.Datos\obj\Debug\Backend.Datos.pdb
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll.config
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.pdb
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\obj\Debug\Backend.Datos.dll
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\obj\Debug\Backend.Datos.pdb
-C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\obj\Debug\Backend.Datos.csprojResolveAssemblyReference.cache
 C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll.config
 C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll
 C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Datos\bin\Debug\Backend.Datos.pdb
 C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Datos\obj\Debug\Backend.Datos.dll
 C:\Users\Leandro Maldonado\Desktop\Personal\2016\Segundo semestre\Portafolio\proyectos backend\trunk\Backend.Datos\obj\Debug\Backend.Datos.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll.config
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\bin\Debug\Backend.Datos.pdb
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\obj\Debug\Backend.Datos.dll
+C:\Users\raide\Desktop\ProyectoBackend\trunk\Backend.Datos\obj\Debug\Backend.Datos.pdb

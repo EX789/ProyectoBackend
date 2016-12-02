@@ -10,8 +10,6 @@
           <ScalarProperty Name="HORAS" ColumnName="HORAS" />
           <ScalarProperty Name="MINUTOS" ColumnName="MINUTOS" />
           <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="HORA_FINAL" ColumnName="HORA_FINAL" />
-          <ScalarProperty Name="MINUTO_FINAL" ColumnName="MINUTO_FINAL" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -155,15 +153,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PICIENTESNOPAGO">
-      <EntityTypeMapping TypeName="Model.PICIENTESNOPAGO">
-        <MappingFragment StoreEntitySet="PICIENTESNOPAGO">
+    <EntitySetMapping Name="PAGOCOMISION">
+      <EntityTypeMapping TypeName="Model.PAGOCOMISION">
+        <MappingFragment StoreEntitySet="PAGOCOMISION">
+          <ScalarProperty Name="MES" ColumnName="MES" />
+          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+          <ScalarProperty Name="RUT" ColumnName="RUT" />
           <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="PERSONA_RUT" ColumnName="PERSONA_RUT" />
-          <ScalarProperty Name="FECHA_RESERVA" ColumnName="FECHA_RESERVA" />
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID_AGEN_MED" ColumnName="ID_AGEN_MED" />
-          <ScalarProperty Name="ID_MEDICO" ColumnName="ID_MEDICO" />
+          <ScalarProperty Name="TOTAL_COMISION" ColumnName="TOTAL_COMISION" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -180,27 +178,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <AssociationSetMapping Name="MED_CENTRO" TypeName="Model.MED_CENTRO" StoreEntitySet="MED_CENTRO">
-      <EndProperty Name="MEDICO">
-        <ScalarProperty Name="ID_MEDICO" ColumnName="MEDICO_ID_MEDICO" />
-      </EndProperty>
-      <EndProperty Name="CENTRO_MEDICO">
-        <ScalarProperty Name="ID_CENTRO" ColumnName="CENTRO_MEDICO_ID_CENTRO" />
-      </EndProperty>
-    </AssociationSetMapping>
     <FunctionImportMapping FunctionImportName="P_INGRESAR_PAGOS" FunctionName="Model.Store.P_INGRESAR_PAGOS" />
-    <EntitySetMapping Name="PAGOCOMISION">
-      <EntityTypeMapping TypeName="Model.PAGOCOMISION">
-        <MappingFragment StoreEntitySet="PAGOCOMISION">
-          <ScalarProperty Name="TOTAL_COMISION" ColumnName="TOTAL_COMISION" />
-          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-          <ScalarProperty Name="RUT" ColumnName="RUT" />
-          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-          <ScalarProperty Name="ANIO" ColumnName="ANIO" />
-          <ScalarProperty Name="MES" ColumnName="MES" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="ACTUALIZA_COMISION" FunctionName="Model.Store.ACTUALIZA_COMISION" />
   </EntityContainerMapping>
 </Mapping>

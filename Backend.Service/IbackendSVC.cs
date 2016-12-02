@@ -101,7 +101,7 @@ namespace Backend.Service
         bool RecibeListado(List<Backend.Negocio.Agenda_medico> Lista);
 
         [OperationContract]
-        void enviarCorreo();
+        void enviarCorreo(string correo);
 
 
         [OperationContract]

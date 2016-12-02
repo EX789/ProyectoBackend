@@ -43,17 +43,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="galenosEDM.Designer.cs">
+    <Compile Include="GalenosEDM.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>galenosEDM.edmx</DependentUpon>
+      <DependentUpon>GalenosEDM.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="galenosEDM.edmx">
+    <EntityDeploy Include="GalenosEDM.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>galenosEDM.Designer.cs</LastGenOutput>
+      <LastGenOutput>GalenosEDM.Designer.cs</LastGenOutput>
     </EntityDeploy>
   </ItemGroup>
   <ItemGroup>
